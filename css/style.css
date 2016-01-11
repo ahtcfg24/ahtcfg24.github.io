@@ -242,6 +242,7 @@ a {
   -ms-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   height: 100%;
+  background: #ffe;
 }
 #container .left-col .overlay {
   width: 100%;
@@ -858,7 +859,6 @@ a {
   margin: 30px;
   position: relative;
   border: 1px solid #ddd;
-  background: #fff;
   -webkit-transition: all 0.2s ease-in;
 }
 .article.show {
@@ -945,10 +945,12 @@ a {
 .article-inner {
   position: relative;
   margin-bottom: 20px;
+  background: #efffee;
 }
 .article-header {
   border-left: 5px solid;
   padding: 15px 0px 15px 25px;
+  background: #ffe;
 }
 .article-info.info-on-right {
   margin: 10px 0 0 0;
@@ -1479,7 +1481,7 @@ a {
   font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
 }
 .article-entry code {
-  background: #eee;
+  background: #aff;
   padding: 0 0.3em;
   border: none;
 }
