@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="360-site-verification" content="75ba9f01bc7007c114960763194ea594" />
+  <meta name="shenma-site-verification" content="af7a569cbd897189a1d354f5a546e9cf_1448262814"/>
+  <meta name="sogou_site_verification" content="5w3a9otWtO"/>
+  <meta name="baidu-site-verification" content="Cgw2xbM7Ic" />
+  <meta name="baidu_union_verify" content="f55e2001837ebf7201cf0e0127fdf65e">
+  <meta name="msvalidate.01" content="BFA6D650605B5004050507525BDDAEF8" />
+  <meta charset="utf-8">
+  
+  <title>普通广播和有序广播  | 绝世盗草人的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="安卓的广播分为普通广播和有序广播
+1.普通广播对于普通广播来说，多个Receiver都可以接收到同一条广播同样拿检测飞行模式的例子来示范,先新建三个Receiver类,实现onReceiver方法，除了第二个类中多了一个abortBroadcast方法外，其他两个类都没有这个方法。下面给出第二个类的代码MyReceiver2.java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="普通广播和有序广播 ">
+<meta property="og:url" content="http://www.iamding.cn/2015-08/17-cij9bb9ih000i7cr2joeaba9p/index.html">
+<meta property="og:site_name" content="绝世盗草人的博客">
+<meta property="og:description" content="安卓的广播分为普通广播和有序广播
+1.普通广播对于普通广播来说，多个Receiver都可以接收到同一条广播同样拿检测飞行模式的例子来示范,先新建三个Receiver类,实现onReceiver方法，除了第二个类中多了一个abortBroadcast方法外，其他两个类都没有这个方法。下面给出第二个类的代码MyReceiver2.java">
+<meta property="og:image" content="http://www.iamding.cn/img/Receiver.png">
+<meta property="og:image" content="http://www.iamding.cn/img/OrderBroadcast.png">
+<meta property="og:updated_time" content="2016-01-10T10:03:55.067Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="普通广播和有序广播 ">
+<meta name="twitter:description" content="安卓的广播分为普通广播和有序广播
+1.普通广播对于普通广播来说，多个Receiver都可以接收到同一条广播同样拿检测飞行模式的例子来示范,先新建三个Receiver类,实现onReceiver方法，除了第二个类中多了一个abortBroadcast方法外，其他两个类都没有这个方法。下面给出第二个类的代码MyReceiver2.java">
+  
+    <link rel="alternative" href="/atom.xml" title="绝世盗草人的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b8e8ee87e4708173f00d9048c309301";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/cat.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">绝世盗草人</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">未看此花时，花与汝同寂，待看此花时，此花犹艳丽。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+				    
+						</ul>
+						
+							
+						
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/ahtcfg24" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/3180900562" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://ahtcfg24.github.io/Web/BayMax/index.html/">大白传奇</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://ahtcfg24.github.io/Web/Cloud/index.html/">云端传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.51plusplus.com/">呆海的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zhrmoe.com/">然妞的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">吾名徐鼎，丙子年夏至诞，天资愚笨，所幸笨鸟先飞，于娘胎中修炼数月，换得一口先天真气，持久不散，遂有今朝。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">绝世盗草人</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/cat.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">绝世盗草人</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">未看此花时，花与汝同寂，待看此花时，此花犹艳丽。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ahtcfg24" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/3180900562" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-普通广播和有序广播" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015-08/17-cij9bb9ih000i7cr2joeaba9p/" class="article-date">
+  	<time datetime="2015-08-17T06:43:56.000Z" itemprop="datePublished">2015-08-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      普通广播和有序广播 
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="u5B89_u5353_u7684_u5E7F_u64AD_u5206_u4E3A_u666E_u901A_u5E7F_u64AD_u548C_u6709_u5E8F_u5E7F_u64AD"><a href="#u5B89_u5353_u7684_u5E7F_u64AD_u5206_u4E3A_u666E_u901A_u5E7F_u64AD_u548C_u6709_u5E8F_u5E7F_u64AD" class="headerlink" title="安卓的广播分为普通广播和有序广播"></a>安卓的广播分为普通广播和有序广播</h2><ul>
+<li><h2 id="1-_u666E_u901A_u5E7F_u64AD"><a href="#1-_u666E_u901A_u5E7F_u64AD" class="headerlink" title="1.普通广播"></a>1.普通广播</h2>对于普通广播来说，多个Receiver都可以接收到同一条广播<br>同样拿检测飞行模式的例子来示范,先新建三个Receiver类,实现onReceiver方法，除了第二个类中多了一个abortBroadcast方法外，其他两个类都没有这个方法。下面给出第二个类的代码<br>MyReceiver2.java<a id="more"></a>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.ahtcfg24.broadcastreceiverdemo3;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.content.<span class="type">BroadcastReceiver</span>;</span><br><span class="line"><span class="keyword">import</span> android.content.<span class="type">Context</span>;</span><br><span class="line"><span class="keyword">import</span> android.content.<span class="type">Intent</span>;</span><br><span class="line"><span class="keyword">import</span> android.util.<span class="type">Log</span>;</span><br><span class="line"></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MyReceiver2</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">BroadcastReceiver</span> &#123;</span></span><br><span class="line">   </span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    public void onReceive(<span class="type">Context</span> context, <span class="type">Intent</span> intent) &#123;</span><br><span class="line">        <span class="type">Log</span>.i(<span class="string">"2"</span>, <span class="string">"---&gt;Received"</span>);</span><br><span class="line">        abortBroadcast();<span class="comment">//终止广播的发送</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>三个Receiver类建好之后去清单文件静态注册这三个Receiver<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">receiver</span></span><br><span class="line">    <span class="attribute">android:name</span>=<span class="value">".MyReceiver"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.action.AIRPLANE_MODE"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">category</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.category.DEFAULT"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">receiver</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">receiver</span></span><br><span class="line">    <span class="attribute">android:name</span>=<span class="value">".MyReceiver2"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.action.AIRPLANE_MODE"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">category</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.category.DEFAULT"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">receiver</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">receiver</span></span><br><span class="line">    <span class="attribute">android:name</span>=<span class="value">".MyReceiver3"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.action.AIRPLANE_MODE"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">category</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.category.DEFAULT"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">receiver</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>然后运行程序，在改变飞行模式时，依然能在Logcat的info中看到<br><img src="/img/Receiver.png" alt="三个Receiver都接收到了"><br>这表明abortBroadcast方法不能终止普通广播</p>
+<p><a href="https://github.com/ahtcfg24/AndroidDemo/tree/master/broadcastreceiverdemo3">查看代码</a></p>
+<ul>
+<li><h2 id="2-_u6709_u5E8F_u5E7F_u64AD"><a href="#2-_u6709_u5E8F_u5E7F_u64AD" class="headerlink" title="2.有序广播"></a>2.有序广播</h2>有序广播的传播原理是优先级最高的Receiver收到，然后由它传递给优先级低的广播，依次传递<br>优先级的范围是（-1000~1000），数值越大优先级越高。<br>发送有序广播时使用sendOrderBroadcast方法，这个方法的第二个参数如果为null，就表示接收者不需要声明特定权限就可以接收到这条广播。像安卓系统的短信就是一种有序广播。如果接收者是一款负责拦截垃圾短信的软件，那么就要给这个软件声明接收短信的权限，以让这款软件接收到短信的广播，收到垃圾短信时终止广播，这样垃圾短信就不会被短信软件收到，从而用户就无法收到垃圾短信。</li>
+</ul>
+<p>同样用三个Receiver来做示例<br>首先，我们在Activity中设定要发送的广播内容以及广播地址和自定义的接收广播的权限名称</p>
+<p>MainActivity.java<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.ahtcfg24.broadcastreceiverdemo4;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.app.<span class="type">Activity</span>;</span><br><span class="line"><span class="keyword">import</span> android.content.<span class="type">Intent</span>;</span><br><span class="line"><span class="keyword">import</span> android.os.<span class="type">Bundle</span>;</span><br><span class="line"><span class="keyword">import</span> android.view.<span class="type">View</span>;</span><br><span class="line"><span class="keyword">import</span> android.widget.<span class="type">Button</span>;</span><br><span class="line"></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">Activity</span> &#123;</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">Button</span> button;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">Intent</span> intent;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> void onCreate(<span class="type">Bundle</span> savedInstanceState) &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(<span class="type">R</span>.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        button = (<span class="type">Button</span>) findViewById(<span class="type">R</span>.id.button);</span><br><span class="line">        button.setOnClickListener(<span class="keyword">new</span> <span class="type">View</span>.<span class="type">OnClickListener</span>() &#123;</span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            public void onClick(<span class="type">View</span> v) &#123;</span><br><span class="line">                send();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> void send() &#123;</span><br><span class="line">        intent = <span class="keyword">new</span> <span class="type">Intent</span>(<span class="string">"android.intent.action.MyOrderBroadcast"</span>);<span class="comment">//设定广播地址</span></span><br><span class="line">        intent.putExtra(<span class="string">"广播"</span>, <span class="string">"这是自定义发出的一条广播"</span>);</span><br><span class="line">        sendOrderedBroadcast(intent, <span class="string">"android.permission.RECEIVE_MYBROADCAST"</span>);<span class="comment">//接收者需要声明权限</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后我们分别建立三个Receiver，其中第二个Receiver中调用了abortBroadcast方法<br>MyReceiver.java<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.ahtcfg24.broadcastreceiverdemo4;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.content.<span class="type">BroadcastReceiver</span>;</span><br><span class="line"><span class="keyword">import</span> android.content.<span class="type">Context</span>;</span><br><span class="line"><span class="keyword">import</span> android.content.<span class="type">Intent</span>;</span><br><span class="line"><span class="keyword">import</span> android.os.<span class="type">Bundle</span>;</span><br><span class="line"><span class="keyword">import</span> android.util.<span class="type">Log</span>;</span><br><span class="line"><span class="keyword">import</span> android.widget.<span class="type">Toast</span>;</span><br><span class="line"></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MyReceiver</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">BroadcastReceiver</span> &#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">Bundle</span> bundle;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public void onReceive(<span class="type">Context</span> context, <span class="type">Intent</span> intent) &#123;</span><br><span class="line">        <span class="type">String</span> msg = intent.getStringExtra(<span class="string">"广播"</span>);</span><br><span class="line">        <span class="type">Log</span>.i(<span class="string">"FirstReceiver"</span>, <span class="string">"---&gt;"</span> + msg);</span><br><span class="line">        <span class="type">Toast</span>.makeText(context, msg, <span class="type">Toast</span>.<span class="type">LENGTH_SHORT</span>).show();</span><br><span class="line">        putBundle(msg);<span class="comment">//加工接收到的源广播</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 如果下一个Receiver能够接收到这里的bundle，则证明广播确实是从高级别的Receiver传向低级别</span><br><span class="line">     *</span><br><span class="line">     * @param msg 从广播源接收到的消息</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">private</span> void putBundle(<span class="type">String</span> msg) &#123;</span><br><span class="line">        bundle = <span class="keyword">new</span> <span class="type">Bundle</span>();</span><br><span class="line">        bundle.putString(<span class="string">"msg1"</span>, msg + <span class="string">",被第一个Receiver处理过了"</span>);</span><br><span class="line">        setResultExtras(bundle);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>MyReceiver2.java<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.ahtcfg24.broadcastreceiverdemo4;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.content.<span class="type">BroadcastReceiver</span>;</span><br><span class="line"><span class="keyword">import</span> android.content.<span class="type">Context</span>;</span><br><span class="line"><span class="keyword">import</span> android.content.<span class="type">Intent</span>;</span><br><span class="line"><span class="keyword">import</span> android.os.<span class="type">Bundle</span>;</span><br><span class="line"><span class="keyword">import</span> android.util.<span class="type">Log</span>;</span><br><span class="line"><span class="keyword">import</span> android.widget.<span class="type">Toast</span>;</span><br><span class="line"></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MyReceiver2</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">BroadcastReceiver</span> &#123;</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">Bundle</span> bundle;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    public void onReceive(<span class="type">Context</span> context, <span class="type">Intent</span> intent) &#123;</span><br><span class="line">        <span class="type">String</span> msg = getResultExtras(<span class="literal">true</span>).getString(<span class="string">"msg1"</span>);</span><br><span class="line">        <span class="type">Log</span>.i(<span class="string">"SecondReceiver"</span>, <span class="string">"---&gt;"</span> + msg);</span><br><span class="line">        <span class="type">Toast</span>.makeText(context, msg, <span class="type">Toast</span>.<span class="type">LENGTH_LONG</span>).show();</span><br><span class="line"></span><br><span class="line">        putBundle(msg);</span><br><span class="line"></span><br><span class="line">        abortBroadcast();<span class="comment">//停止广播</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> void putBundle(<span class="type">String</span> msg) &#123;</span><br><span class="line">        bundle = <span class="keyword">new</span> <span class="type">Bundle</span>();</span><br><span class="line">        bundle.putString(<span class="string">"msg2"</span>, msg + <span class="string">",被第二个Receiver处理过了"</span>);</span><br><span class="line">        setResultExtras(bundle);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>MyReceiver3.java<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.ahtcfg24.broadcastreceiverdemo4;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.content.<span class="type">BroadcastReceiver</span>;</span><br><span class="line"><span class="keyword">import</span> android.content.<span class="type">Context</span>;</span><br><span class="line"><span class="keyword">import</span> android.content.<span class="type">Intent</span>;</span><br><span class="line"><span class="keyword">import</span> android.util.<span class="type">Log</span>;</span><br><span class="line"><span class="keyword">import</span> android.widget.<span class="type">Toast</span>;</span><br><span class="line"></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MyReceiver3</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">BroadcastReceiver</span> &#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    public void onReceive(<span class="type">Context</span> context, <span class="type">Intent</span> intent) &#123;</span><br><span class="line">        <span class="type">String</span> msg = getResultExtras(<span class="literal">true</span>).getString(<span class="string">"msg2"</span>);</span><br><span class="line">        <span class="type">Log</span>.i(<span class="string">"ThirdReceiver"</span>, <span class="string">"---&gt;"</span> + msg);</span><br><span class="line">        <span class="type">Toast</span>.makeText(context, msg, <span class="type">Toast</span>.<span class="type">LENGTH_LONG</span>).show();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在清单文件中为每个Receiver设定优先级，并设定要接收的广播地址，并且还要声明一个接收此广播的权限，并使用此权限。<br>AndroidManifest.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">manifest</span></span><br><span class="line">    <span class="attribute">package</span>=<span class="value">"com.example.ahtcfg24.broadcastreceiverdemo4"</span></span><br><span class="line">    <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">permission</span></span><br><span class="line">        <span class="attribute">android:name</span>=<span class="value">"android.permission.RECEIVE_MYBROADCAST"</span></span><br><span class="line">        <span class="attribute">android:protectionLevel</span>=<span class="value">"normal"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">uses-permission</span> <span class="attribute">android:name</span>=<span class="value">"android.permission.RECEIVE_MYBROADCAST"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">application</span></span><br><span class="line">        <span class="attribute">android:allowBackup</span>=<span class="value">"true"</span></span><br><span class="line">        <span class="attribute">android:icon</span>=<span class="value">"@mipmap/ic_launcher"</span></span><br><span class="line">        <span class="attribute">android:label</span>=<span class="value">"@string/app_name"</span></span><br><span class="line">        <span class="attribute">android:theme</span>=<span class="value">"@style/AppTheme"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">activity</span></span><br><span class="line">            <span class="attribute">android:name</span>=<span class="value">".MainActivity"</span></span><br><span class="line">            <span class="attribute">android:label</span>=<span class="value">"@string/app_name"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.action.MAIN"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">                <span class="tag">&lt;<span class="title">category</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.category.LAUNCHER"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">activity</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="title">receiver</span></span><br><span class="line">            <span class="attribute">android:name</span>=<span class="value">".MyReceiver"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">intent-filter</span> <span class="attribute">android:priority</span>=<span class="value">"500"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.action.MyOrderBroadcast"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">category</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.category.DEFAULT"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">receiver</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">receiver</span></span><br><span class="line">            <span class="attribute">android:name</span>=<span class="value">".MyReceiver2"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">intent-filter</span> <span class="attribute">android:priority</span>=<span class="value">"200"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.action.MyOrderBroadcast"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">category</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.category.DEFAULT"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">receiver</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">receiver</span></span><br><span class="line">            <span class="attribute">android:name</span>=<span class="value">".MyReceiver3"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">intent-filter</span> <span class="attribute">android:priority</span>=<span class="value">"-200"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.action.MyOrderBroadcast"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">category</span> <span class="attribute">android:name</span>=<span class="value">"android.intent.category.DEFAULT"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">receiver</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">application</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>布局文件忽略</p>
+<p>这样当我们点击发送按钮时，就能看到如下结果：<br><img src="/img/OrderBroadcast.png" alt="结果"><br>从结果中我们能看出，MyReceiver接收到广播之后进行处理，然后交给MyReceiver2接收，然后MyReceiver2执行了终止广播方法，导致MyReceiver3没有收到广播</p>
+<h2 id="u53C2_u8003_u8D44_u6599"><a href="#u53C2_u8003_u8D44_u6599" class="headerlink" title="参考资料"></a><a href="http://blog.csdn.net/liuhe688/article/details/6955668">参考资料</a></h2><h1 id="uFF08_u672C_u6587_u7CFB_u4F5C_u8005_u539F_u521B_uFF0C_u8F6C_u8F7D_u8BF7_u6CE8_u660E_u51FA_u5904_uFF09"><a href="#uFF08_u672C_u6587_u7CFB_u4F5C_u8005_u539F_u521B_uFF0C_u8F6C_u8F7D_u8BF7_u6CE8_u660E_u51FA_u5904_uFF09" class="headerlink" title="（本文系作者原创，转载请注明出处）"></a>（本文系作者原创，转载请注明出处）</h1>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015-09/01-cij9bb9kv00187cr2slt3r52b/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          ListView之BaseAdapter详解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015-08/16-cij9bb9l7001e7cr2js451kf8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">BroadcastReceiver </div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="普通广播和有序广播" data-title="普通广播和有序广播 " data-url="http://www.iamding.cn/2015-08/17-cij9bb9ih000i7cr2joeaba9p/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_uv">
+  您是第<span id="busuanzi_value_site_uv"></span>次访问本站的人哦~~~
+</span>
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 绝世盗草人
+      <a href="http://www.miitbeian.gov.cn" target="_blank">京ICP备15064145号</a>
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  
+      Theme 
+      <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> 
+      by Litten and Modified by 绝世盗草人
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
