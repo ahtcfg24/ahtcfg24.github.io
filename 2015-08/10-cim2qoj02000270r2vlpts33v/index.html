@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="360-site-verification" content="75ba9f01bc7007c114960763194ea594" />
+  <meta name="shenma-site-verification" content="af7a569cbd897189a1d354f5a546e9cf_1448262814"/>
+  <meta name="sogou_site_verification" content="5w3a9otWtO"/>
+  <meta name="baidu-site-verification" content="Cgw2xbM7Ic" />
+  <meta name="baidu_union_verify" content="f55e2001837ebf7201cf0e0127fdf65e">
+  <meta name="msvalidate.01" content="BFA6D650605B5004050507525BDDAEF8" />
+  <meta charset="utf-8">
+  
+  <title>重构iBistu学习笔记 | 绝世盗草人的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="requestWindowFeature()的使用详解：  requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉ActionBar  点击查看原文详情
+onActivityResult()的使用详解：  在主Activity与若干个子Activity之间传递信息时，当子Activity结束了，并返回一些信息给主Activity时调用该方法  使用方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重构iBistu学习笔记">
+<meta property="og:url" content="http://www.iamding.cn/2015-08/10-cim2qoj02000270r2vlpts33v/index.html">
+<meta property="og:site_name" content="绝世盗草人的博客">
+<meta property="og:description" content="requestWindowFeature()的使用详解：  requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉ActionBar  点击查看原文详情
+onActivityResult()的使用详解：  在主Activity与若干个子Activity之间传递信息时，当子Activity结束了，并返回一些信息给主Activity时调用该方法  使用方法">
+<meta property="og:updated_time" content="2016-01-10T10:05:35.299Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="重构iBistu学习笔记">
+<meta name="twitter:description" content="requestWindowFeature()的使用详解：  requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉ActionBar  点击查看原文详情
+onActivityResult()的使用详解：  在主Activity与若干个子Activity之间传递信息时，当子Activity结束了，并返回一些信息给主Activity时调用该方法  使用方法">
+  
+    <link rel="alternative" href="/atom.xml" title="绝世盗草人的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b8e8ee87e4708173f00d9048c309301";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/cat.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">绝世盗草人</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">未看此花时，花与汝同寂，待看此花时，此花犹艳丽。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+				    
+						</ul>
+						
+							
+						
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/ahtcfg24" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/3180900562" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://ahtcfg24.github.io/Web/BayMax/index.html/">大白传奇</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://ahtcfg24.github.io/Web/Cloud/index.html/">云端传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.51plusplus.com/">呆海的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zhrmoe.com/">然妞的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.yifans.org/blog/">凡爷的精神病院</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://iming.org/blog/">铭的笔记本</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">吾名徐鼎，丙子年夏至诞，天资愚笨，所幸笨鸟先飞，于娘胎中修炼数月，换得一口先天真气，持久不散，遂有今朝。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">绝世盗草人</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/cat.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">绝世盗草人</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">未看此花时，花与汝同寂，待看此花时，此花犹艳丽。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ahtcfg24" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/3180900562" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-重构iBistu学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015-08/10-cim2qoj02000270r2vlpts33v/" class="article-date">
+  	<time datetime="2015-08-10T03:23:36.000Z" itemprop="datePublished">2015-08-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      重构iBistu学习笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><h2 id="requestWindowFeature_28_29_u7684_u4F7F_u7528_u8BE6_u89E3_uFF1A"><a href="#requestWindowFeature_28_29_u7684_u4F7F_u7528_u8BE6_u89E3_uFF1A" class="headerlink" title="requestWindowFeature()的使用详解："></a>requestWindowFeature()的使用详解：</h2>  <code>requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉ActionBar</code><br>  <a href="http://zhanhao.iteye.com/blog/1174914">点击查看原文详情</a></li>
+<li><h2 id="onActivityResult_28_29_u7684_u4F7F_u7528_u8BE6_u89E3_uFF1A"><a href="#onActivityResult_28_29_u7684_u4F7F_u7528_u8BE6_u89E3_uFF1A" class="headerlink" title="onActivityResult()的使用详解："></a>onActivityResult()的使用详解：</h2>  在主Activity与若干个子Activity之间传递信息时，当子Activity结束了，并返回一些信息给主Activity时调用该方法<br>  使用方法：在主Activity中复写onActivityResult()方法用来处理接收到的信息，在启动子Activity时使用startActivityForResult(intent,Code)来启动<br>  <a href="http://blog.csdn.net/it1039871366/article/details/9951823">点击查看原文详情</a></li>
+<li><h2 id="OAuth2-0_u8BE6_u89E3"><a href="#OAuth2-0_u8BE6_u89E3" class="headerlink" title="OAuth2.0详解"></a>OAuth2.0详解</h2>  第三方（App）提供用户和服务器的桥梁，用户使用服务器返回的登录界面登录后，第三方（App）就可以获取到用户信息<br>  <a href="http://kb.cnblogs.com/page/189153/">点击查看原文详情</a></li>
+<li><h2 id="AndroidStudio_u5BFC_u5165_u7B2C_u4E09_u65B9_u5E93_u603B_u7ED3"><a href="#AndroidStudio_u5BFC_u5165_u7B2C_u4E09_u65B9_u5E93_u603B_u7ED3" class="headerlink" title="AndroidStudio导入第三方库总结"></a>AndroidStudio导入第三方库总结</h2>  <a href="http://blog.sina.com.cn/s/blog_693301190102v6au.html">点击查看原文详情</a><br>  <a href="http://zhengxiaopeng.com/2014/12/13/Android-Studio-jar%E3%80%81so%E3%80%81library%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96/">点击查看原文详情</a><a id="more"></a></li>
+<li><h2 id="u7F13_u5B58_u6280_u672F"><a href="#u7F13_u5B58_u6280_u672F" class="headerlink" title="缓存技术"></a>缓存技术</h2>  <a href="http://blog.csdn.net/lnb333666/article/details/8460159">点击查看原文详情</a><br>  <a href="https://github.com/yangfuhai/ASimpleCache">点击查看原文详情</a></li>
+<li><h2 id="u81EA_u5B9A_u4E49_u80CC_u666F_u8272_u6E10_u53D8"><a href="#u81EA_u5B9A_u4E49_u80CC_u666F_u8272_u6E10_u53D8" class="headerlink" title="自定义背景色渐变"></a>自定义背景色渐变</h2>  <a href="http://www.cnblogs.com/sydeveloper/p/3308038.html">点击查看原文详情</a></li>
+<li><h2 id="File-separator"><a href="#File-separator" class="headerlink" title="File.separator"></a>File.separator</h2>  在不同平台上,文件目录的分隔符是不一样的，为了使得文件目录跨平台，以File.separator来代替“/”或者“\”表示分隔符<br>  <a href="http://blog.csdn.net/chindroid/article/details/7735832">点击查看原文详情</a></li>
+<li><h2 id="WebView_u7684_u4F7F_u7528"><a href="#WebView_u7684_u4F7F_u7528" class="headerlink" title="WebView的使用"></a>WebView的使用</h2>  <a href="http://www.cnblogs.com/mengdd/archive/2013/03/01/2938295.html">点击查看原文详情</a></li>
+<li><h2 id="u81EA_u5B9A_u4E49ProgressDialog_u6548_u679C"><a href="#u81EA_u5B9A_u4E49ProgressDialog_u6548_u679C" class="headerlink" title="自定义ProgressDialog效果"></a>自定义ProgressDialog效果</h2>  <a href="http://blog.csdn.net/stilo2012/article/details/8202405">点击查看原文详情</a></li>
+<li><h2 id="u81EA_u5B9A_u4E49Toast_u6548_u679C"><a href="#u81EA_u5B9A_u4E49Toast_u6548_u679C" class="headerlink" title="自定义Toast效果"></a>自定义Toast效果</h2>  <a href="http://www.cnblogs.com/salam/archive/2010/11/10/1873654.html">点击查看原文详情</a>    </li>
+<li><h2 id="u767E_u5EA6_u5730_u56FE_u5F00_u53D1"><a href="#u767E_u5EA6_u5730_u56FE_u5F00_u53D1" class="headerlink" title="百度地图开发"></a>百度地图开发</h2>  <a href="http://blog.csdn.net/crazy1235/article/details/42614603">搭建地图sdk</a><br>  <a href="http://www.oschina.net/question/1389206_158886?sort=time">更新地图状态</a><br>  <a href="http://blog.csdn.net/crazy1235/article/details/43898451">地图状态控制</a></li>
+</ul>
+<h1 id="uFF08_u672C_u6587_u7CFB_u4F5C_u8005_u539F_u521B_uFF0C_u8F6C_u8F7D_u8BF7_u6CE8_u660E_u51FA_u5904_uFF09"><a href="#uFF08_u672C_u6587_u7CFB_u4F5C_u8005_u539F_u521B_uFF0C_u8F6C_u8F7D_u8BF7_u6CE8_u660E_u51FA_u5904_uFF09" class="headerlink" title="（本文系作者原创，转载请注明出处）"></a>（本文系作者原创，转载请注明出处）</h1>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015-08/12-cim2qoj28001o70r25dxksv8o/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Activity的生命周期
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015-07/31-cim2qoj0x000m70r2a2c3xsw5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">安卓布局中的dp</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="重构iBistu学习笔记" data-title="重构iBistu学习笔记" data-url="http://www.iamding.cn/2015-08/10-cim2qoj02000270r2vlpts33v/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_uv">
+  您是第<span id="busuanzi_value_site_uv"></span>次访问本站的人哦~~~
+</span>
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 绝世盗草人
+      <a href="http://www.miitbeian.gov.cn" target="_blank">京ICP备15064145号</a>
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  
+      Theme 
+      <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> 
+      by Litten and Modified by 绝世盗草人
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
