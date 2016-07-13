@@ -131,7 +131,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DreamFactory/" style="font-size: 10px;">DreamFactory</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -211,10 +211,69 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-ubuntu创建开机自启动脚本" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015-12/20-ciqkd766b000xp8r2pd24ek10/" class="article-date">
+  	<time datetime="2015-12-20T08:06:20.000Z" itemprop="datePublished">2015-12-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015-12/20-ciqkd766b000xp8r2pd24ek10/">ubuntu创建自启动脚本</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="u4F7F_u7528_u73AF_u5883_3Aubuntu_14-04_64_u4F4D"><a href="#u4F7F_u7528_u73AF_u5883_3Aubuntu_14-04_64_u4F4D" class="headerlink" title="使用环境:ubuntu 14.04 64位"></a>使用环境:ubuntu 14.04 64位</h2><h2 id="u539F_u7406_uFF1A"><a href="#u539F_u7406_uFF1A" class="headerlink" title="原理："></a>原理：</h2><p>Linux用户登录时，bash首先自动执行系统管理员建立的全局登录脚本：<code>/ect/profile</code>。然后bash在用户目录下按顺序查找三个特殊文件中的一个：<code>~/.bash_profile</code>、<code>~/.bash_login</code>、 <code>~/.profile</code>，但只执行最先找到的一个。<br>当用户退出登录时，bash自动执行个人的退出登录脚本<code>～/.bash_logout</code><br>因此，只需根据实际需要在上述文件中加入命令就可以实现在某一时刻自动运行某程序。</p>
+<h2 id="u521B_u5EFA_u5F00_u673A_u81EA_u542F_u52A8_u811A_u672C_uFF1A"><a href="#u521B_u5EFA_u5F00_u673A_u81EA_u542F_u52A8_u811A_u672C_uFF1A" class="headerlink" title="创建开机自启动脚本："></a>创建开机自启动脚本：</h2><p>首先把我们需要执行的程序写成shell脚本，比如我需要开机自动执行一条命令切换触摸板开启关闭，就可以写个这样的脚本<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015-12/20-ciqkd766b000xp8r2pd24ek10/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-ubuntu配置环境变量" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015-12/20-cim2qoj1d000u70r2yhubl7v6/" class="article-date">
+      <a href="/2015-12/20-ciqkd766b000vp8r2sci0cspb/" class="article-date">
   	<time datetime="2015-12-20T06:42:32.000Z" itemprop="datePublished">2015-12-20</time>
 </a>
     </div>
@@ -228,7 +287,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015-12/20-cim2qoj1d000u70r2yhubl7v6/">ubuntu配置环境变量详解</a>
+      <a class="article-title" href="/2015-12/20-ciqkd766b000vp8r2sci0cspb/">ubuntu配置环境变量详解</a>
     </h1>
   
 
@@ -254,7 +313,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015-12/20-cim2qoj1d000u70r2yhubl7v6/#more">阅读全文 >></a>
+          <a  href="/2015-12/20-ciqkd766b000vp8r2sci0cspb/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -274,7 +333,7 @@
     <article id="post-Android编程规范不完全指南【转】" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015-12/15-cim2qoj28001k70r242szf89j/" class="article-date">
+      <a href="/2015-12/15-ciqkd7676001mp8r2v680e54i/" class="article-date">
   	<time datetime="2015-12-15T00:43:43.000Z" itemprop="datePublished">2015-12-15</time>
 </a>
     </div>
@@ -288,7 +347,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015-12/15-cim2qoj28001k70r242szf89j/">Android编程规范不完全指南【转】</a>
+      <a class="article-title" href="/2015-12/15-ciqkd7676001mp8r2v680e54i/">Android编程规范不完全指南【转】</a>
     </h1>
   
 
@@ -315,7 +374,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015-12/15-cim2qoj28001k70r242szf89j/#more">阅读全文 >></a>
+          <a  href="/2015-12/15-ciqkd7676001mp8r2v680e54i/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -335,7 +394,7 @@
     <article id="post-AsyncTask的用法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015-12/11-cim2qoj1s001i70r27czcg5mf/" class="article-date">
+      <a href="/2015-12/11-ciqkd7676001kp8r2jnk0hame/" class="article-date">
   	<time datetime="2015-12-11T13:21:09.000Z" itemprop="datePublished">2015-12-11</time>
 </a>
     </div>
@@ -349,7 +408,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015-12/11-cim2qoj1s001i70r27czcg5mf/">AsyncTask的用法</a>
+      <a class="article-title" href="/2015-12/11-ciqkd7676001kp8r2jnk0hame/">AsyncTask的用法</a>
     </h1>
   
 
@@ -377,7 +436,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015-12/11-cim2qoj1s001i70r27czcg5mf/#more">阅读全文 >></a>
+          <a  href="/2015-12/11-ciqkd7676001kp8r2jnk0hame/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -397,7 +456,7 @@
     <article id="post-java通过URL网络连接" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015-12/09-cim2qoj1d000y70r2c024zrkl/" class="article-date">
+      <a href="/2015-12/09-ciqkd766b000zp8r20nq51j90/" class="article-date">
   	<time datetime="2015-12-09T15:20:02.000Z" itemprop="datePublished">2015-12-09</time>
 </a>
     </div>
@@ -411,7 +470,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015-12/09-cim2qoj1d000y70r2c024zrkl/">java通过URL用get方式获取网络连接</a>
+      <a class="article-title" href="/2015-12/09-ciqkd766b000zp8r20nq51j90/">java通过URL用get方式获取网络连接</a>
     </h1>
   
 
@@ -436,67 +495,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015-12/09-cim2qoj1d000y70r2c024zrkl/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-在linux服务器安装配置Nginx" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015-11/19-cim2qoj0x000o70r2otkonppp/" class="article-date">
-  	<time datetime="2015-11-19T14:28:00.000Z" itemprop="datePublished">2015-11-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015-11/19-cim2qoj0x000o70r2otkonppp/">在linux服务器安装配置Nginx</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="u4F7F_u7528_u73AF_u5883_3Aubuntu_server14-04_32_u4F4D"><a href="#u4F7F_u7528_u73AF_u5883_3Aubuntu_server14-04_32_u4F4D" class="headerlink" title="使用环境:ubuntu server14.04 32位"></a>使用环境:ubuntu server14.04 32位</h2><h2 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h2><p>服务器搭建了Web环境之后，我们才能通过公网ip访问到该服务器上的网页程序，常见的Web环境有Apache、Tomcat、IIS、Nginx，他们也叫Web服务器软件，简称Web服务器<br>Nginx是一款高性能的Web服务器，支持反向代理，对静态文件的处理能力出众。<br>本博文将简单介绍在Linux服务器上安装配置Nginx以实现可网站环境<br>废话不多说，直入正题：</p>
-<h2 id="u5B89_u88C5_uFF1A"><a href="#u5B89_u88C5_uFF1A" class="headerlink" title="安装："></a>安装：</h2><p><code>sudo apt-get install nginx</code><br><code>sudo /etc/init.d/nginx start</code><br>安装完毕。</p>
-<h2 id="u914D_u7F6E_uFF1A"><a href="#u914D_u7F6E_uFF1A" class="headerlink" title="配置："></a>配置：</h2>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015-11/19-cim2qoj0x000o70r2otkonppp/#more">阅读全文 >></a>
+          <a  href="/2015-12/09-ciqkd766b000zp8r20nq51j90/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

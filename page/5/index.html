@@ -131,7 +131,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DreamFactory/" style="font-size: 10px;">DreamFactory</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -211,10 +211,72 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Activity的生命周期" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015-08/12-ciqkd767m001qp8r2s3lznuii/" class="article-date">
+  	<time datetime="2015-08-12T06:32:45.000Z" itemprop="datePublished">2015-08-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015-08/12-ciqkd767m001qp8r2s3lznuii/">Activity的生命周期</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Activity_u662F_u5B89_u5353_u7684_u56DB_u5927_u7EC4_u4EF6_u4E4B_u4E00_uFF0C_u5BF9_u4E8E_u65B0_u624B_u6765_u8BF4_uFF0C_u53EF_u4EE5_u628AActivity_u7406_u89E3_u4E3A_u4E00_u4E2A_u5C4F_u5E55_u754C_u9762_u3002_u6BD4_u5982QQ_uFF0C_u6253_u5F00QQ_uFF0C_u9996_u5148_u4F1A_u770B_u5230_u6B22_u8FCE_u9875_uFF0C_u6B22_u8FCE_u9875_u4E4B_u540E_u662F_u767B_u5F55_u754C_u9762_uFF0C_u8F93_u5165_u8D26_u53F7_u5BC6_u7801_u767B_u5F55_u4E4B_u540E_u70B9_u767B_u5F55_uFF0C_u8FDB_u5165_u8054_u7CFB_u4EBA_u754C_u9762_u3002_u3002_u3002_u3002_u3002_u3002_u8FD9_u5176_u4E2D_u7684_u6B22_u8FCE_u9875_uFF0C_u767B_u5F55_u754C_u9762_uFF0C_u8054_u7CFB_u4EBA_u754C_u9762_u7B49_u7B49_u53EF_u89C1_u7684_u754C_u9762_u90FD_u662F_u4E00_u4E2A_u4E2A_u72EC_u7ACB_u7684Activity_u3002"><a href="#Activity_u662F_u5B89_u5353_u7684_u56DB_u5927_u7EC4_u4EF6_u4E4B_u4E00_uFF0C_u5BF9_u4E8E_u65B0_u624B_u6765_u8BF4_uFF0C_u53EF_u4EE5_u628AActivity_u7406_u89E3_u4E3A_u4E00_u4E2A_u5C4F_u5E55_u754C_u9762_u3002_u6BD4_u5982QQ_uFF0C_u6253_u5F00QQ_uFF0C_u9996_u5148_u4F1A_u770B_u5230_u6B22_u8FCE_u9875_uFF0C_u6B22_u8FCE_u9875_u4E4B_u540E_u662F_u767B_u5F55_u754C_u9762_uFF0C_u8F93_u5165_u8D26_u53F7_u5BC6_u7801_u767B_u5F55_u4E4B_u540E_u70B9_u767B_u5F55_uFF0C_u8FDB_u5165_u8054_u7CFB_u4EBA_u754C_u9762_u3002_u3002_u3002_u3002_u3002_u3002_u8FD9_u5176_u4E2D_u7684_u6B22_u8FCE_u9875_uFF0C_u767B_u5F55_u754C_u9762_uFF0C_u8054_u7CFB_u4EBA_u754C_u9762_u7B49_u7B49_u53EF_u89C1_u7684_u754C_u9762_u90FD_u662F_u4E00_u4E2A_u4E2A_u72EC_u7ACB_u7684Activity_u3002" class="headerlink" title="Activity是安卓的四大组件之一，对于新手来说，可以把Activity理解为一个屏幕界面。比如QQ，打开QQ，首先会看到欢迎页，欢迎页之后是登录界面，输入账号密码登录之后点登录，进入联系人界面。。。。。。这其中的欢迎页，登录界面，联系人界面等等可见的界面都是一个个独立的Activity。"></a>Activity是安卓的四大组件之一，对于新手来说，可以把Activity理解为一个屏幕界面。比如QQ，打开QQ，首先会看到欢迎页，欢迎页之后是登录界面，输入账号密码登录之后点登录，进入联系人界面。。。。。。这其中的欢迎页，登录界面，联系人界面等等可见的界面都是一个个独立的Activity。</h2><h2 id="Activity_u4E2D_u63D0_u4F9B_u4E86_u4EE5_u4E0B_u51E0_u4E2A_u65B9_u6CD5_u6765_u63A7_u5236Activity_u7684_u751F_u547D_u5468_u671F_2C_u8FD9_u4E9B_u65B9_u6CD5_u5168_u90E8_u7531_u5B89_u5353_u7CFB_u7EDF_u6839_u636E_u7528_u6237_u7684_u4EA4_u4E92_u6765_u81EA_u884C_u8C03_u7528"><a href="#Activity_u4E2D_u63D0_u4F9B_u4E86_u4EE5_u4E0B_u51E0_u4E2A_u65B9_u6CD5_u6765_u63A7_u5236Activity_u7684_u751F_u547D_u5468_u671F_2C_u8FD9_u4E9B_u65B9_u6CD5_u5168_u90E8_u7531_u5B89_u5353_u7CFB_u7EDF_u6839_u636E_u7528_u6237_u7684_u4EA4_u4E92_u6765_u81EA_u884C_u8C03_u7528" class="headerlink" title="Activity中提供了以下几个方法来控制Activity的生命周期,这些方法全部由安卓系统根据用户的交互来自行调用"></a>Activity中提供了以下几个方法来控制Activity的生命周期,这些方法全部由安卓系统根据用户的交互来自行调用</h2><ul>
+<li><code>onCreate()</code>在Activity创建时调用</li>
+<li><code>onStart()</code>在Activity刚打开时调用</li>
+<li><code>onResume()</code>在Activity打开完毕之后调用</li>
+<li><code>onPause()</code>在Activity即将变成不可见的状态时（如打开了一个新的Activity时，按了返回键时，切到其他程序时，按了菜单键时等等）调用
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015-08/12-ciqkd767m001qp8r2s3lznuii/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-重构iBistu学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015-08/10-cim2qoj02000270r2vlpts33v/" class="article-date">
+      <a href="/2015-08/10-ciqkd76500003p8r2atc499th/" class="article-date">
   	<time datetime="2015-08-10T03:23:36.000Z" itemprop="datePublished">2015-08-10</time>
 </a>
     </div>
@@ -228,7 +290,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015-08/10-cim2qoj02000270r2vlpts33v/">重构iBistu学习笔记</a>
+      <a class="article-title" href="/2015-08/10-ciqkd76500003p8r2atc499th/">重构iBistu学习笔记</a>
     </h1>
   
 
@@ -256,7 +318,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015-08/10-cim2qoj02000270r2vlpts33v/#more">阅读全文 >></a>
+          <a  href="/2015-08/10-ciqkd76500003p8r2atc499th/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -276,7 +338,7 @@
     <article id="post-安卓布局中的dp" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015-07/31-cim2qoj0x000m70r2a2c3xsw5/" class="article-date">
+      <a href="/2015-07/31-ciqkd765v000np8r23kv1t5zm/" class="article-date">
   	<time datetime="2015-07-30T16:51:59.000Z" itemprop="datePublished">2015-07-31</time>
 </a>
     </div>
@@ -290,7 +352,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015-07/31-cim2qoj0x000m70r2a2c3xsw5/">安卓布局中的dp</a>
+      <a class="article-title" href="/2015-07/31-ciqkd765v000np8r23kv1t5zm/">安卓布局中的dp</a>
     </h1>
   
 
@@ -333,7 +395,7 @@
     <article id="post-i++和++i" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015-07/28-cim2qoj1d001470r2ufagtwy4/" class="article-date">
+      <a href="/2015-07/28-ciqkd766b0015p8r2s9sqeqh2/" class="article-date">
   	<time datetime="2015-07-28T10:22:55.000Z" itemprop="datePublished">2015-07-28</time>
 </a>
     </div>
@@ -347,7 +409,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015-07/28-cim2qoj1d001470r2ufagtwy4/">i++和++i</a>
+      <a class="article-title" href="/2015-07/28-ciqkd766b0015p8r2s9sqeqh2/">i++和++i</a>
     </h1>
   
 
@@ -371,7 +433,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015-07/28-cim2qoj1d001470r2ufagtwy4/#more">阅读全文 >></a>
+          <a  href="/2015-07/28-ciqkd766b0015p8r2s9sqeqh2/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -391,7 +453,7 @@
     <article id="post-Java中this与super" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015-07/28-cim2qoj1s001c70r23tq35q0v/" class="article-date">
+      <a href="/2015-07/28-ciqkd766q001dp8r28cvfmsmp/" class="article-date">
   	<time datetime="2015-07-28T10:16:18.000Z" itemprop="datePublished">2015-07-28</time>
 </a>
     </div>
@@ -405,7 +467,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015-07/28-cim2qoj1s001c70r23tq35q0v/">Java中this与super</a>
+      <a class="article-title" href="/2015-07/28-ciqkd766q001dp8r28cvfmsmp/">Java中this与super</a>
     </h1>
   
 
@@ -433,66 +495,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015-07/28-cim2qoj1s001c70r23tq35q0v/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-安卓解析json" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015-07/28-cim2qoj0x000k70r2y1s449tf/" class="article-date">
-  	<time datetime="2015-07-28T10:09:58.000Z" itemprop="datePublished">2015-07-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015-07/28-cim2qoj0x000k70r2y1s449tf/">安卓解析json </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Json_u7684_u6570_u636E_u7ED3_u6784"><a href="#Json_u7684_u6570_u636E_u7ED3_u6784" class="headerlink" title="Json的数据结构"></a>Json的数据结构</h2><p>例如：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">	&#123;	</span><br><span class="line">		  "<span class="attribute">authType</span>":<span class="value"><span class="string">"oAuth2"</span> </span>, </span><br><span class="line">		  "<span class="attribute">CAS</span>":<span class="value"><span class="string">"https://auth.bistu.edu.cn"</span> </span>, </span><br><span class="line">		  "<span class="attribute">oAuth2</span>":<span class="value"><span class="string">"https://222.249.250.89:8443"</span> </span>, </span><br><span class="line">		  "<span class="attribute">AndroidUpgrade</span>":<span class="value"><span class="string">"http://m.bistu.edu.cn/upgrade/Android.php"</span> </span>, </span><br><span class="line">		  "<span class="attribute">jwApi</span>":<span class="value"><span class="string">"http://m.bistu.edu.cn/jiaowu"</span> </span>, </span><br><span class="line">		  "<span class="attribute">icampusApi</span>":<span class="value"><span class="string">"http://m.bistu.edu.cn/api"</span> </span>, </span><br><span class="line">		  "<span class="attribute">newsApi</span>":<span class="value"><span class="string">"http://m.bistu.edu.cn/newsapi"</span></span><br><span class="line">	</span>&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
-<p>在这组数据中，[]中的内容是一个json数组 ，数组中存放着用{}包含的json对象（数组的元素），如果有多个{}，那么就表明这个json数组中有多个json对象；一个对象中有多个键值对，冒号前面的是键，冒号后面的是值，不同的键值对之间用，分隔开<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015-07/28-cim2qoj0x000k70r2y1s449tf/#more">阅读全文 >></a>
+          <a  href="/2015-07/28-ciqkd766q001dp8r28cvfmsmp/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
