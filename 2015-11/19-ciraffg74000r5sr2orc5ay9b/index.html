@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="360-site-verification" content="75ba9f01bc7007c114960763194ea594" />
+  <meta name="shenma-site-verification" content="af7a569cbd897189a1d354f5a546e9cf_1448262814"/>
+  <meta name="sogou_site_verification" content="5w3a9otWtO"/>
+  <meta name="baidu-site-verification" content="Cgw2xbM7Ic" />
+  <meta name="baidu_union_verify" content="f55e2001837ebf7201cf0e0127fdf65e">
+  <meta name="msvalidate.01" content="BFA6D650605B5004050507525BDDAEF8" />
+  <meta charset="utf-8">
+  
+  <title>在linux服务器安装配置Nginx | 绝世盗草人的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用环境:ubuntu server14.04 32位前言服务器搭建了Web环境之后，我们才能通过公网ip访问到该服务器上的网页程序，常见的Web环境有Apache、Tomcat、IIS、Nginx，他们也叫Web服务器软件，简称Web服务器Nginx是一款高性能的Web服务器，支持反向代理，对静态文件的处理能力出众。本博文将简单介绍在Linux服务器上安装配置Nginx以实现可网站环境废话不多说">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在linux服务器安装配置Nginx">
+<meta property="og:url" content="http://www.iamding.cn/2015-11/19-ciraffg74000r5sr2orc5ay9b/index.html">
+<meta property="og:site_name" content="绝世盗草人的博客">
+<meta property="og:description" content="使用环境:ubuntu server14.04 32位前言服务器搭建了Web环境之后，我们才能通过公网ip访问到该服务器上的网页程序，常见的Web环境有Apache、Tomcat、IIS、Nginx，他们也叫Web服务器软件，简称Web服务器Nginx是一款高性能的Web服务器，支持反向代理，对静态文件的处理能力出众。本博文将简单介绍在Linux服务器上安装配置Nginx以实现可网站环境废话不多说">
+<meta property="og:updated_time" content="2016-07-31T09:39:49.152Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在linux服务器安装配置Nginx">
+<meta name="twitter:description" content="使用环境:ubuntu server14.04 32位前言服务器搭建了Web环境之后，我们才能通过公网ip访问到该服务器上的网页程序，常见的Web环境有Apache、Tomcat、IIS、Nginx，他们也叫Web服务器软件，简称Web服务器Nginx是一款高性能的Web服务器，支持反向代理，对静态文件的处理能力出众。本博文将简单介绍在Linux服务器上安装配置Nginx以实现可网站环境废话不多说">
+  
+    <link rel="alternative" href="/atom.xml" title="绝世盗草人的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b8e8ee87e4708173f00d9048c309301";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/cat.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">绝世盗草人</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">未看此花时，花与汝同寂，待看此花时，此花犹艳丽。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+				    
+						</ul>
+						
+							
+						
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/ahtcfg24" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/3180900562" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DreamFactory/" style="font-size: 13.33px;">DreamFactory</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://ahtcfg24.github.io/Web/BayMax/index.html/">大白传奇</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://ahtcfg24.github.io/Web/Cloud/index.html/">云端传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.51plusplus.com/">呆海的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zhrmoe.com/">然妞的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.yifans.org/blog/">凡爷的精神病院</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://iming.org/blog/">铭的笔记本</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">吾名徐鼎，丙子年夏至诞，天资愚笨，所幸笨鸟先飞，于娘胎中修炼数月，换得一口先天真气，持久不散，遂有今朝。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">绝世盗草人</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/cat.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">绝世盗草人</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">未看此花时，花与汝同寂，待看此花时，此花犹艳丽。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ahtcfg24" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/3180900562" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-在linux服务器安装配置Nginx" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015-11/19-ciraffg74000r5sr2orc5ay9b/" class="article-date">
+  	<time datetime="2015-11-19T14:28:00.000Z" itemprop="datePublished">2015-11-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      在linux服务器安装配置Nginx
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="u4F7F_u7528_u73AF_u5883_3Aubuntu_server14-04_32_u4F4D"><a href="#u4F7F_u7528_u73AF_u5883_3Aubuntu_server14-04_32_u4F4D" class="headerlink" title="使用环境:ubuntu server14.04 32位"></a>使用环境:ubuntu server14.04 32位</h2><h2 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h2><p>服务器搭建了Web环境之后，我们才能通过公网ip访问到该服务器上的网页程序，常见的Web环境有Apache、Tomcat、IIS、Nginx，他们也叫Web服务器软件，简称Web服务器<br>Nginx是一款高性能的Web服务器，支持反向代理，对静态文件的处理能力出众。<br>本博文将简单介绍在Linux服务器上安装配置Nginx以实现可网站环境<br>废话不多说，直入正题：</p>
+<h2 id="u5B89_u88C5_uFF1A"><a href="#u5B89_u88C5_uFF1A" class="headerlink" title="安装："></a>安装：</h2><p><code>sudo apt-get install nginx</code><br><code>sudo /etc/init.d/nginx start</code><br>安装完毕。</p>
+<h2 id="u914D_u7F6E_uFF1A"><a href="#u914D_u7F6E_uFF1A" class="headerlink" title="配置："></a>配置：</h2><a id="more"></a>
+<p>  给nginx目录下的子文件夹和文件最高读写权限<br>    <code>sudo chmod -R 777 /etc/nginx</code><br>  使用vim编辑配置文件nginx.conf<br>    <code>vi /etc/nginx/nginx.conf</code><br>  把默认的网站配置<code>server{...}</code>或者<code>include /etc/nginx/conf.d/*.conf;``include /etc/nginx/sites-enabled/*;</code>注释掉(在语句前面加#号表示注释)；</p>
+<p>  添加一个主机配置信息代码到原默认配置所在行：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">server</span> &#123;</span><br><span class="line">	<span class="comment">#监听80端口</span></span><br><span class="line">	<span class="title">listen</span> <span class="number">80</span>;</span><br><span class="line">	<span class="comment">#服务器名</span></span><br><span class="line">	<span class="title">server_name</span> localhost ;</span><br><span class="line">	<span class="comment">#定义可访问的网站根目录为/var/www/iamding/  </span></span><br><span class="line">	<span class="title">root</span> /var/www/iamding/;</span><br><span class="line">	<span class="comment">#设定本主机的访问日志位置</span></span><br><span class="line">	<span class="title">access_log</span>  /var/log/nginx/blog_access.log;</span><br><span class="line">	<span class="comment">#设定本主机的错误日志位置                                    </span></span><br><span class="line">	<span class="title">error_log</span>   /var/log/nginx/blog_error.log;</span><br><span class="line">	<span class="comment">#设定404错误重定向到www.iamding.cn/404.html   </span></span><br><span class="line">	<span class="title">error_page</span> <span class="number">404</span>  /<span class="number">404</span>.html;</span><br><span class="line">	<span class="comment">#通过匹配设定ico、gif等格式的图片相关的配置</span></span><br><span class="line">	<span class="title">location</span> <span class="regexp">~* ^.+\.(ico|gif|jpg|jpeg|png)$</span> &#123;                            </span><br><span class="line">           <span class="title">root</span> /var/www/iamding;                                    </span><br><span class="line">           <span class="title">access_log</span>   <span class="built_in">off</span>;</span><br><span class="line">		<span class="comment">#缓存过期时间设为1天                 </span></span><br><span class="line">           <span class="title">expires</span>      <span class="number">1d</span>;                            </span><br><span class="line">       &#125; </span><br><span class="line">	<span class="comment">#通过匹配设定css、js等格式的文件相关的配置                                                                             </span></span><br><span class="line">	<span class="title">location</span> <span class="regexp">~* ^.+\.(css|js|txt|xml|swf|wav)$</span> &#123;                                   </span><br><span class="line">		<span class="title">root</span> /var/www/iamding;                                                        </span><br><span class="line">		<span class="title">access_log</span>   <span class="built_in">off</span>;                                                          </span><br><span class="line">		<span class="title">expires</span>      <span class="number">10m</span>;                                                          </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">#对“/”设置反向代理                                                                              </span></span><br><span class="line">	<span class="title">location</span> / &#123;                                                                   </span><br><span class="line">		<span class="title">root</span> /var/www/iamding;                                                </span><br><span class="line">		<span class="title">if</span> (-f <span class="variable">$request_filename</span>) &#123;                                            </span><br><span class="line">			<span class="title">rewrite</span><span class="regexp"> ^/(.*)$</span>  /<span class="variable">$1</span> <span class="built_in">break</span>;                                    </span><br><span class="line">		&#125;                                                                      </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  重启nginx或者重启服务器使配置生效：<br>    <code>sudo /etc/init.d/nginx restart</code></p>
+<h2 id="u5982_u679C_u4F60_u60F3_u8981_u540C_u65F6_u914D_u7F6E_u591A_u4E2A_u4E3B_u673A_28_u5373_u540C_u4E00_u4E2A_u516C_u7F51IP_uFF0C_u901A_u8FC7_u4E0D_u540C_u7AEF_u53E3_u8BBF_u95EE_u4E0D_u540C_u7684_u4E3B_u673A_uFF0C_u53EA_u9700_u8981_u5728_u4E0A_u9762_u7684server_7B_u2026_7D_u5916_u9762_u518D_u52A0_u4E00_u4E2Aserver_7B_u2026_7D_uFF0C_u5177_u4F53_u914D_u7F6E_u4FE1_u606F_u540C_u4E0A_uFF0C_u4E0D_u540C_u4E4B_u5904_u5728_u4E8E_u7AEF_u53E3_u4E0D_u80FD_u4E0E_u4E4B_u524D_u7684_u7AEF_u53E3_u76F8_u540C_uFF0Croot_u76EE_u5F55_u4E5F_u8981_u6539_u6210_u76F8_u5E94_u7684_u76EE_u5F55_u3002"><a href="#u5982_u679C_u4F60_u60F3_u8981_u540C_u65F6_u914D_u7F6E_u591A_u4E2A_u4E3B_u673A_28_u5373_u540C_u4E00_u4E2A_u516C_u7F51IP_uFF0C_u901A_u8FC7_u4E0D_u540C_u7AEF_u53E3_u8BBF_u95EE_u4E0D_u540C_u7684_u4E3B_u673A_uFF0C_u53EA_u9700_u8981_u5728_u4E0A_u9762_u7684server_7B_u2026_7D_u5916_u9762_u518D_u52A0_u4E00_u4E2Aserver_7B_u2026_7D_uFF0C_u5177_u4F53_u914D_u7F6E_u4FE1_u606F_u540C_u4E0A_uFF0C_u4E0D_u540C_u4E4B_u5904_u5728_u4E8E_u7AEF_u53E3_u4E0D_u80FD_u4E0E_u4E4B_u524D_u7684_u7AEF_u53E3_u76F8_u540C_uFF0Croot_u76EE_u5F55_u4E5F_u8981_u6539_u6210_u76F8_u5E94_u7684_u76EE_u5F55_u3002" class="headerlink" title="如果你想要同时配置多个主机(即同一个公网IP，通过不同端口访问不同的主机，只需要在上面的server{…}外面再加一个server{…}，具体配置信息同上，不同之处在于端口不能与之前的端口相同，root目录也要改成相应的目录。"></a>如果你想要同时配置多个主机(即同一个公网IP，通过不同端口访问不同的主机，只需要在上面的server{…}外面再加一个server{…}，具体配置信息同上，不同之处在于端口不能与之前的端口相同，root目录也要改成相应的目录。</h2><h2 id="u8FD9_u6837_u5C31_u5B8C_u6210_u4E86Nginx_u73AF_u5883_u7684_u642D_u5EFA_uFF0C_u6B64_u65F6_u5F80_u670D_u52A1_u5668_u7684/var/www/iamding_u6587_u4EF6_u5939_u91CC_u4E0A_u4F20_u7F51_u9875_u7A0B_u5E8F_u5373_u53EF_uFF0C_u6BD4_u5982_u6709_u4E00_u4E2Avar/www/iamding/index-html_uFF0C_u90A3_u4E48_u5F53_u4F60_u5728_u6D4F_u89C8_u5668_u8F93_u5165_u4F60_u670D_u52A1_u5668_u7684_u516C_u7F51ip_u65F6_uFF0C_u6D4F_u89C8_u5668_u5C31_u4F1A_u8FD0_u884C_u8FD9_u4E2Aindex-html"><a href="#u8FD9_u6837_u5C31_u5B8C_u6210_u4E86Nginx_u73AF_u5883_u7684_u642D_u5EFA_uFF0C_u6B64_u65F6_u5F80_u670D_u52A1_u5668_u7684/var/www/iamding_u6587_u4EF6_u5939_u91CC_u4E0A_u4F20_u7F51_u9875_u7A0B_u5E8F_u5373_u53EF_uFF0C_u6BD4_u5982_u6709_u4E00_u4E2Avar/www/iamding/index-html_uFF0C_u90A3_u4E48_u5F53_u4F60_u5728_u6D4F_u89C8_u5668_u8F93_u5165_u4F60_u670D_u52A1_u5668_u7684_u516C_u7F51ip_u65F6_uFF0C_u6D4F_u89C8_u5668_u5C31_u4F1A_u8FD0_u884C_u8FD9_u4E2Aindex-html" class="headerlink" title="这样就完成了Nginx环境的搭建，此时往服务器的/var/www/iamding文件夹里上传网页程序即可，比如有一个var/www/iamding/index.html，那么当你在浏览器输入你服务器的公网ip时，浏览器就会运行这个index.html"></a>这样就完成了Nginx环境的搭建，此时往服务器的/var/www/iamding文件夹里上传网页程序即可，比如有一个var/www/iamding/index.html，那么当你在浏览器输入你服务器的公网ip时，浏览器就会运行这个index.html</h2><h1 id="uFF08_u672C_u6587_u7CFB_u4F5C_u8005_u539F_u521B_uFF0C_u8F6C_u8F7D_u8BF7_u6CE8_u660E_u51FA_u5904_uFF09"><a href="#uFF08_u672C_u6587_u7CFB_u4F5C_u8005_u539F_u521B_uFF0C_u8F6C_u8F7D_u8BF7_u6CE8_u660E_u51FA_u5904_uFF09" class="headerlink" title="（本文系作者原创，转载请注明出处）"></a>（本文系作者原创，转载请注明出处）</h1>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015-12/09-ciraffg7400115sr2sa8rwvjc/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          java通过URL用get方式获取网络连接
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015-11/19-ciraffg74000t5sr22ma9khpj/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">利用git服务器在Linux服务器上部署hexo</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="在linux服务器安装配置Nginx" data-title="在linux服务器安装配置Nginx" data-url="http://www.iamding.cn/2015-11/19-ciraffg74000r5sr2orc5ay9b/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_uv">
+  您是第<span id="busuanzi_value_site_uv"></span>次访问本站的人哦~~~
+</span>
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 绝世盗草人
+      <a href="http://www.miitbeian.gov.cn" target="_blank">京ICP备15064145号</a>
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  
+      Theme 
+      <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> 
+      by Litten and Modified by 绝世盗草人
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
