@@ -237,70 +237,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="u4EC0_u4E48DreamFactory_uFF08_u4EE5_u4E0B_u7B80_u79F0DF_uFF09"><a href="#u4EC0_u4E48DreamFactory_uFF08_u4EE5_u4E0B_u7B80_u79F0DF_uFF09" class="headerlink" title="什么DreamFactory（以下简称DF）"></a>什么DreamFactory（以下简称DF）</h2><p>DreamFactory是一款杰出的后端云服务平台，属于BaaS（Backend as a Service）平台的一种，类似的比较出名的平台有Parse（已被FaceBook收购），国内比较有名比如Bomb。这些平台的功能都比较齐全，但宗旨都一样，就是提供一套成熟的，安全的，快捷的后端方案，降低开发成本，缩短开发周期。通俗点说，就是提供后端接口而不需要写后端代码。使用这些平台之后，开发者只需要设计好数据库逻辑，就能快速生成API接口，然后调用这些API接口就能安全地对数据库进行增删改查操作，上传下载文件，推送通知等等。从某种意义上讲，的确是直接使得后端开发成本降到0。</p>
-<h2 id="u4E3A_u4EC0_u4E48_u8981_u7528DreamFactory"><a href="#u4E3A_u4EC0_u4E48_u8981_u7528DreamFactory" class="headerlink" title="为什么要用DreamFactory"></a>为什么要用DreamFactory</h2><p>然而大部分BaaS平台毕竟属于第三方平台，数据都储存在第三方，如果第三方平台倒闭了，岂不意味着使用该平台的开发的软件都无法使用了。因此，DreamFactory的优越性就体现出来了，因为它是开源的！我们完全可以将DreamFactory部署在自己的服务器上，使用自己的数据库存储数据，甚至能动手自己修改完善DreamFactory！因此，如果你是一名不懂后端的前端开发人员，又不想花时间学习后端，又想快速开发出自己的APP，那么DreamFactory就是你的最佳选择之一。</p>
-<ul>
-<li>DreamFactory官网：<a href="https://www.dreamfactory.com/">https://www.dreamfactory.com/</a></li>
-<li>DreamFactory开源项目托管地址：<a href="https://github.com/dreamfactorysoftware/dreamfactory">https://github.com/dreamfactorysoftware/dreamfactory</a></li>
-</ul>
-<h2 id="u642D_u5EFADreamFactory_u9700_u8981_u54EA_u4E9B_u77E5_u8BC6"><a href="#u642D_u5EFADreamFactory_u9700_u8981_u54EA_u4E9B_u77E5_u8BC6" class="headerlink" title="搭建DreamFactory需要哪些知识"></a>搭建DreamFactory需要哪些知识</h2><ul>
-<li>Http请求基础知识<ul>
-<li>要想使用DreamFactory生成的API接口，get，post，header，request，response等等这些基本知识还是会的。</li>
-</ul>
-</li>
-<li>数据库基本使用<ul>
-<li>作为一名开发人员，数据库是一门基本功，虽然DreamFactory能帮我们解决后端数据的操作问题，但是数据来源肯定还是需要我们自己来提供的，DreamFactory支持大部分主流数据库，因此，你至少得熟悉一个数据库的基本使用。</li>
-</ul>
-</li>
-<li>看懂英文文档<ul>
-<li>没办法，谁让DreamFactory是外国人弄出来的呢，名气也不如Parse那么大，截至本文发表时，国内似乎还没有相关教程，只能去看官方提供的英文教程。</li>
-</ul>
-</li>
-<li>不需要什么了，仅此而已。</li>
-</ul>
-<h2 id="DreamFactory_u5B89_u88C5_u6559_u7A0B"><a href="#DreamFactory_u5B89_u88C5_u6559_u7A0B" class="headerlink" title="DreamFactory安装教程"></a>DreamFactory安装教程</h2><p>DreamFactory提供了多种安装方式，对于windows来说，由于有界面，下载安装即可，安装过程实在太过傻瓜式，本文仅提供在Linux Ubuntu 14.04上安装DreamFactory教程。(以下提到的命令均是在root权限下进行操作，如果权限不够请加sudo)</p>
-<ul>
-<li>注册登录<a href="https://bitnami.com">Bitnami</a><br><img src="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/sign_in.jpg" alt=""></li>
-<li><p>前往<a href="https://bitnami.com/stack/dreamfactory/installer">https://bitnami.com/stack/dreamfactory/installer</a> ,下载适合自己所需的安装包。<br>  <img src="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/installer.jpg" alt="">这里可以直接复制下载链接，然后在命令行使用wget下载<br>  <img src="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/ScreenClip.png" alt=""></p>
-</li>
-<li><p>下载完成后，给安装包授权，使其可运行</p>
-<blockquote>
-<p>chmod 777 bitnami-dreamfactory-2.2.1-2-linux-x64-installer.run</p>
-</blockquote>
-</li>
-<li><p>安装bitnami-dreamfactory至少需要2G的内存，如果你的linux内存不够，那么就需要先分配虚拟内存，以下命令为临时分配4G虚拟内存</p>
-<blockquote>
-<p>fallocate -l 4G /swapfile</p>
-<p> chmod 600 /swapfile</p>
-<p> mkswap /swapfile</p>
-<p> swapon /swapfile</p>
-</blockquote>
-</li>
-<li><p>分配完毕后运行即可</p>
-<blockquote>
-<p>./bitnami-dreamfactory-2.2.1-2-linux-x64-installer.run</p>
-</blockquote>
-</li>
-<li><p>运行成功后就进入安装程序，具体过程如下：<br><img src="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/ScreenClip%5B1%5D.png" alt=""><br>运行后会提示安装哪些组件，一个完整的DreamFactory至少需要一个Web服务器（本安装包自动安装Apache），一个数据库（自动安装MariaDB和mongoDB，安装过程中会提示输入数据库root默认密码，MariaDB默认端口是3306，如果你的Linxu上3306端口已经被别的进程占用，就会提示你输入一个新的端口给它），PHP环境（自动安装），DreamFactory主程序（默认安装），另外nginx、phpMyadmin、mail support都是可选的，可以不装。安装目录直接回车就是选择默认目录，也可以输入目录。最后确认一遍就开始安装了，3—10分钟后即可装好。</p>
-</li>
-<li><p>装好后会提示是否启动stack，如果是在有界面的Linux上的话，选择启动就会打开一个控制面板，管理安装的组件，如果没有界面，选择启动就会默认启动上述组件。此时在你的浏览器输入服务器的ip，就会进入DreamFactory的管理员注册的界面了，如果能看到注册界面，就说明安装成功。如果没能访问成功，可以进入安装目录，找到一个叫做ctlscript的脚本所在的子目录，命令行输入：</p>
-<blockquote>
-<p>./ctlscript.sh staus 查看组件运行情况</p>
-</blockquote>
-<p>如果有组件的状态不是running，就输入以下命令来手动启动</p>
-<blockquote>
-<p>ctlscript.sh start|stop|restart mysql|mongo|apache，</p>
-</blockquote>
-<p>例如：</p>
-<blockquote>
-<p>ctlscript.sh start mysql</p>
-</blockquote>
-</li>
-<li><p>至此DreamFactory安装完毕。具体使用和部署后端接口，连接数据库过程请参考下篇教程。</p>
-</li>
-</ul>
-<p>（本文为绝世盗草人原创，转载请声明出处：<a href="http://iamding.cn）">http://iamding.cn）</a></p>
-
+        <h2 id="u4EC0_u4E48DreamFactory_uFF08_u4EE5_u4E0B_u7B80_u79F0DF_uFF09"><a href="#u4EC0_u4E48DreamFactory_uFF08_u4EE5_u4E0B_u7B80_u79F0DF_uFF09" class="headerlink" title="什么DreamFactory（以下简称DF）"></a>什么DreamFactory（以下简称DF）</h2><p>DreamFactory是一款杰出的后端云服务平台，属于BaaS（Backend as a Service）平台的一种，类似的比较出名的平台有Parse（已被FaceBook收购），国内比较有名比如Bomb。这些平台的功能都比较齐全，但宗旨都一样，就是提供一套成熟的，安全的，快捷的后端方案，降低开发成本，缩短开发周期。通俗点说，就是提供后端接口而不需要写后端代码。使用这些平台之后，开发者只需要设计好数据库逻辑，就能快速生成API接口，然后调用这些API接口就能安全地对数据库进行增删改查操作，上传下载文件，推送通知等等。从某种意义上讲，的确是直接使得后端开发成本降到0。<br>
       
     </div>
     
@@ -313,6 +250,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016-08/03-cirf3aupd001dzkr2t4xtx004/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
