@@ -131,7 +131,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DreamFactory/" style="font-size: 13.33px;">DreamFactory</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DreamFactory/" style="font-size: 13.33px;">DreamFactory</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Linux-DreamFacotory/" style="font-size: 10px;">Linux DreamFacotory</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -211,10 +211,72 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-AsyncTask的用法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015-12/11-cirf3auq9001qzkr277zqzk46/" class="article-date">
+  	<time datetime="2015-12-11T13:21:09.000Z" itemprop="datePublished">2015-12-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015-12/11-cirf3auq9001qzkr277zqzk46/">AsyncTask的用法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h2><p>在安卓中，UI线程就是程序的主线程，是用来控制程序图形界面的操作的，对图形界面的操作必须在主线程中进行，而网络相关的操作是不允许在安卓主线程中进行的，因此我们需要异步的进行网络操作。实现异步操作有不少办法，下面介绍一种常见的办法：AsyncTask。<br>AsyncTask是安卓中常用来执行需要与UI进行交互的异步任务的类，它可以在后台处理一些简单的异步任务，并且能够在不使用Thread或Handlers的情况下将异步操作的结果传递给UI。它是被设计用来处理一些耗时相对比较短的任务的，通常处理的操作都是能在几秒内完成的。如果需要处理更长的耗时操作，建议去使用Executor, ThreadPoolExecutor 或者 FutureTask这样的类。</p>
+<h2 id="u7C7B_u578B"><a href="#u7C7B_u578B" class="headerlink" title="类型"></a>类型</h2><p>AsyncTask是一个模板类，有三个基本类型:<code>AsyncTask&lt;Params,Progress,Result&gt;</code>。</p>
+<ul>
+<li><code>Params</code>: <code>execute</code>方法传入<code>doInBackground</code>的参数类型.</li>
+<li><code>Progress</code>: <code>publishProgress</code>方法传入<code>onProgressUpdate</code>的参数类型
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015-12/11-cirf3auq9001qzkr277zqzk46/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-java通过URL网络连接" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015-12/09-ciraffg7400115sr2sa8rwvjc/" class="article-date">
+      <a href="/2015-12/09-cirf3auop0011zkr29vidza7h/" class="article-date">
   	<time datetime="2015-12-09T15:20:02.000Z" itemprop="datePublished">2015-12-09</time>
 </a>
     </div>
@@ -228,7 +290,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015-12/09-ciraffg7400115sr2sa8rwvjc/">java通过URL用get方式获取网络连接</a>
+      <a class="article-title" href="/2015-12/09-cirf3auop0011zkr29vidza7h/">java通过URL用get方式获取网络连接</a>
     </h1>
   
 
@@ -253,7 +315,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015-12/09-ciraffg7400115sr2sa8rwvjc/#more">阅读全文 >></a>
+          <a  href="/2015-12/09-cirf3auop0011zkr29vidza7h/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -273,7 +335,7 @@
     <article id="post-在linux服务器安装配置Nginx" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015-11/19-ciraffg74000r5sr2orc5ay9b/" class="article-date">
+      <a href="/2015-11/19-cirf3auo5000rzkr20hvhiee8/" class="article-date">
   	<time datetime="2015-11-19T14:28:00.000Z" itemprop="datePublished">2015-11-19</time>
 </a>
     </div>
@@ -287,7 +349,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015-11/19-ciraffg74000r5sr2orc5ay9b/">在linux服务器安装配置Nginx</a>
+      <a class="article-title" href="/2015-11/19-cirf3auo5000rzkr20hvhiee8/">在linux服务器安装配置Nginx</a>
     </h1>
   
 
@@ -313,7 +375,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015-11/19-ciraffg74000r5sr2orc5ay9b/#more">阅读全文 >></a>
+          <a  href="/2015-11/19-cirf3auo5000rzkr20hvhiee8/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -333,7 +395,7 @@
     <article id="post-利用git服务器在Linux服务器上搭建hexo" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015-11/19-ciraffg74000t5sr22ma9khpj/" class="article-date">
+      <a href="/2015-11/19-cirf3auo9000tzkr2o8s50qew/" class="article-date">
   	<time datetime="2015-11-19T12:47:22.000Z" itemprop="datePublished">2015-11-19</time>
 </a>
     </div>
@@ -347,7 +409,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015-11/19-ciraffg74000t5sr22ma9khpj/">利用git服务器在Linux服务器上部署hexo</a>
+      <a class="article-title" href="/2015-11/19-cirf3auo9000tzkr2o8s50qew/">利用git服务器在Linux服务器上部署hexo</a>
     </h1>
   
 
@@ -371,7 +433,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015-11/19-ciraffg74000t5sr22ma9khpj/#more">阅读全文 >></a>
+          <a  href="/2015-11/19-cirf3auo9000tzkr2o8s50qew/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -391,7 +453,7 @@
     <article id="post-每天学点Linux命令" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015-11/18-ciraffg6p000g5sr2cid4esli/" class="article-date">
+      <a href="/2015-11/18-cirf3aunl000gzkr2fqp4sepo/" class="article-date">
   	<time datetime="2015-11-18T14:58:12.000Z" itemprop="datePublished">2015-11-18</time>
 </a>
     </div>
@@ -405,7 +467,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015-11/18-ciraffg6p000g5sr2cid4esli/">每天学点Linux命令</a>
+      <a class="article-title" href="/2015-11/18-cirf3aunl000gzkr2fqp4sepo/">每天学点Linux命令</a>
     </h1>
   
 
@@ -430,65 +492,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015-11/18-ciraffg6p000g5sr2cid4esli/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-ListView之getView详解" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015-09/01-ciraffg7k001b5sr20xa4x58h/" class="article-date">
-  	<time datetime="2015-09-01T04:40:18.000Z" itemprop="datePublished">2015-09-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015-09/01-ciraffg7k001b5sr20xa4x58h/">ListView之BaseAdapter详解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="ListView_u662F_u5B89_u5353_u4E2D_u4F7F_u7528_u6700_u91CD_u8981_u7684_u63A7_u4EF6_u4E4B_u4E00_u3002_u5B9E_u73B0ListView_u53EF_u4EE5_u901A_u8FC7_u591A_u79CDAdapter_u6765_u5B8C_u6210_u3002_u672C_u6587_u4EE5BaseAdapter_u4E3A_u4F8B_u8BB2_u8FF0ListView_u7684_u7528_u6CD5_uFF0C_u91CD_u70B9_u5728_u4E8E_u5206_u6790getView_u65B9_u6CD5_u3002"><a href="#ListView_u662F_u5B89_u5353_u4E2D_u4F7F_u7528_u6700_u91CD_u8981_u7684_u63A7_u4EF6_u4E4B_u4E00_u3002_u5B9E_u73B0ListView_u53EF_u4EE5_u901A_u8FC7_u591A_u79CDAdapter_u6765_u5B8C_u6210_u3002_u672C_u6587_u4EE5BaseAdapter_u4E3A_u4F8B_u8BB2_u8FF0ListView_u7684_u7528_u6CD5_uFF0C_u91CD_u70B9_u5728_u4E8E_u5206_u6790getView_u65B9_u6CD5_u3002" class="headerlink" title="ListView是安卓中使用最重要的控件之一。实现ListView可以通过多种Adapter来完成。本文以BaseAdapter为例讲述ListView的用法，重点在于分析getView方法。"></a>ListView是安卓中使用最重要的控件之一。实现ListView可以通过多种Adapter来完成。本文以BaseAdapter为例讲述ListView的用法，重点在于分析getView方法。</h2><p>首先，在主Activity里初始化listview，同时在主Activity里建立内部类继承BaseAdapter（当然也可以新建一个文件在外面单独建立一个Adapter类或者直接建立匿名内部类）。<br>代码如下<br>MainActivity.java<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015-09/01-ciraffg7k001b5sr20xa4x58h/#more">阅读全文 >></a>
+          <a  href="/2015-11/18-cirf3aunl000gzkr2fqp4sepo/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -507,7 +511,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </div>
