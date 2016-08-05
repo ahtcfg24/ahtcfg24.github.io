@@ -131,7 +131,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DreamFactory/" style="font-size: 13.33px;">DreamFactory</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Linux-DreamFacotory/" style="font-size: 10px;">Linux DreamFacotory</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DreamFacotory/" style="font-size: 10px;">DreamFacotory</a> <a href="/tags/DreamFactory/" style="font-size: 13.33px;">DreamFactory</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Linux-DreamFacotory/" style="font-size: 10px;">Linux DreamFacotory</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -211,10 +211,69 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-进程内与Service通信" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015-08/14-cirhkjp940005asr2dvhbmdil/" class="article-date">
+  	<time datetime="2015-08-13T16:14:12.000Z" itemprop="datePublished">2015-08-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015-08/14-cirhkjp940005asr2dvhbmdil/">进程内与Service通信</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="u5B89_u5353_u7684_u7EC4_u4EF6_u4E4B_u95F4_u4E00_u822C_u6765_u8BF4_u662F_u4E0D_u4F1A_u6709_u4EA4_u6D41_u7684_uFF0C_u4F46_u662F_u53EF_u4EE5_u901A_u8FC7BindService_u7684_u65B9_u5F0F_u5B9E_u73B0_u5728Activity_u4E0EService_u7684_u901A_u4FE1_u3002_u8FD9_u4E2A_u901A_u4FE1_u7684_u5A92_u4ECB_u5C31_u662FIBinder_u3002"><a href="#u5B89_u5353_u7684_u7EC4_u4EF6_u4E4B_u95F4_u4E00_u822C_u6765_u8BF4_u662F_u4E0D_u4F1A_u6709_u4EA4_u6D41_u7684_uFF0C_u4F46_u662F_u53EF_u4EE5_u901A_u8FC7BindService_u7684_u65B9_u5F0F_u5B9E_u73B0_u5728Activity_u4E0EService_u7684_u901A_u4FE1_u3002_u8FD9_u4E2A_u901A_u4FE1_u7684_u5A92_u4ECB_u5C31_u662FIBinder_u3002" class="headerlink" title="安卓的组件之间一般来说是不会有交流的，但是可以通过BindService的方式实现在Activity与Service的通信。这个通信的媒介就是IBinder。"></a>安卓的组件之间一般来说是不会有交流的，但是可以通过BindService的方式实现在Activity与Service的通信。这个通信的媒介就是IBinder。</h2><p>例如有下面的需求：在Activity内”指挥”一个Service去播放一段音频，当Activity退出时就不再播放，即不支持后台。当用户进行某个操作之后，再点播放，音乐就支持后台。</p>
+<h2 id="u4EE3_u7801_u5982_u4E0B_uFF1A"><a href="#u4EE3_u7801_u5982_u4E0B_uFF1A" class="headerlink" title="代码如下："></a>代码如下：</h2><p>MainActivity.java<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015-08/14-cirhkjp940005asr2dvhbmdil/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-Bind-Service" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015-08/13-cirf3auq1001ozkr2weg5hplv/" class="article-date">
+      <a href="/2015-08/13-cirhkjpav001rasr2dww2f603/" class="article-date">
   	<time datetime="2015-08-12T19:39:59.000Z" itemprop="datePublished">2015-08-13</time>
 </a>
     </div>
@@ -228,7 +287,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015-08/13-cirf3auq1001ozkr2weg5hplv/">Bind Service</a>
+      <a class="article-title" href="/2015-08/13-cirhkjpav001rasr2dww2f603/">Bind Service</a>
     </h1>
   
 
@@ -257,7 +316,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015-08/13-cirf3auq1001ozkr2weg5hplv/#more">阅读全文 >></a>
+          <a  href="/2015-08/13-cirhkjpav001rasr2dww2f603/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -277,7 +336,7 @@
     <article id="post-Start-Service" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015-08/12-cirf3aup50019zkr2vf0ky5by/" class="article-date">
+      <a href="/2015-08/12-cirhkjpaf0019asr2gqxu3cbp/" class="article-date">
   	<time datetime="2015-08-12T12:48:26.000Z" itemprop="datePublished">2015-08-12</time>
 </a>
     </div>
@@ -291,7 +350,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015-08/12-cirf3aup50019zkr2vf0ky5by/">Start Service</a>
+      <a class="article-title" href="/2015-08/12-cirhkjpaf0019asr2gqxu3cbp/">Start Service</a>
     </h1>
   
 
@@ -315,7 +374,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015-08/12-cirf3aup50019zkr2vf0ky5by/#more">阅读全文 >></a>
+          <a  href="/2015-08/12-cirhkjpaf0019asr2gqxu3cbp/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -335,7 +394,7 @@
     <article id="post-Activity的生命周期" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015-08/12-cirf3auqt001wzkr2k3syliyu/" class="article-date">
+      <a href="/2015-08/12-cirhkjpbb001zasr2rc8hrug0/" class="article-date">
   	<time datetime="2015-08-12T06:32:45.000Z" itemprop="datePublished">2015-08-12</time>
 </a>
     </div>
@@ -349,7 +408,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015-08/12-cirf3auqt001wzkr2k3syliyu/">Activity的生命周期</a>
+      <a class="article-title" href="/2015-08/12-cirhkjpbb001zasr2rc8hrug0/">Activity的生命周期</a>
     </h1>
   
 
@@ -377,7 +436,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015-08/12-cirf3auqt001wzkr2k3syliyu/#more">阅读全文 >></a>
+          <a  href="/2015-08/12-cirhkjpbb001zasr2rc8hrug0/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -397,7 +456,7 @@
     <article id="post-重构iBistu学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015-08/10-cirf3aumt0002zkr2ymnmd4dh/" class="article-date">
+      <a href="/2015-08/10-cirhkjp940002asr26e9xgkbg/" class="article-date">
   	<time datetime="2015-08-10T03:23:36.000Z" itemprop="datePublished">2015-08-10</time>
 </a>
     </div>
@@ -411,7 +470,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015-08/10-cirf3aumt0002zkr2ymnmd4dh/">重构iBistu学习笔记</a>
+      <a class="article-title" href="/2015-08/10-cirhkjp940002asr26e9xgkbg/">重构iBistu学习笔记</a>
     </h1>
   
 
@@ -439,65 +498,8 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015-08/10-cirf3aumt0002zkr2ymnmd4dh/#more">阅读全文 >></a>
+          <a  href="/2015-08/10-cirhkjp940002asr26e9xgkbg/#more">阅读全文 >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-安卓布局中的dp" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015-07/31-cirf3auo1000pzkr2v1e6bk7p/" class="article-date">
-  	<time datetime="2015-07-30T16:51:59.000Z" itemprop="datePublished">2015-07-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015-07/31-cirf3auo1000pzkr2v1e6bk7p/">安卓布局中的dp</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>dp是安卓布局中最常见的单位，它表示dip，一种基于屏幕密度的抽象单位。在每英寸160点（160dpi）的显示器上，1dp = 1px。<br>dp与px之间的换算要跟dpi关联，不同dpi的设备下的1dp对应的像素数也不相等。</p>
-<p>dp与px的换算公式如下：<br><code>dp = ( DPI / 160 ) * px</code><br>英寸与像素的换算关系如下：<br><code>英寸 = px / DPI</code></p>
-<p>安卓提供了一套自适应屏幕机制，详情请看<a href="http://www.iteye.com/topic/1128878">这里</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-      
-
       
       <div class="clearfix"></div>
     </div>

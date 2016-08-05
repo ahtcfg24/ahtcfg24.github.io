@@ -131,7 +131,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DreamFactory/" style="font-size: 13.33px;">DreamFactory</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Linux-DreamFacotory/" style="font-size: 10px;">Linux DreamFacotory</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DreamFacotory/" style="font-size: 10px;">DreamFacotory</a> <a href="/tags/DreamFactory/" style="font-size: 13.33px;">DreamFactory</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Linux-DreamFacotory/" style="font-size: 10px;">Linux DreamFacotory</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -211,10 +211,74 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-自用ubuntu备忘录" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016-01/10-cirhkjp940007asr2wz3gvp12/" class="article-date">
+  	<time datetime="2016-01-10T06:08:56.000Z" itemprop="datePublished">2016-01-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016-01/10-cirhkjp940007asr2wz3gvp12/">自用ubuntu备忘录</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>ubuntu14.04安装32位运行库<br><code>sudo apt-get install ia32-libs</code><br>结果显示：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">现在没有可用的软件包 ia32-libs，但是它被其它的软件包引用了。</span><br><span class="line">这可能意味着这个缺失的软件包可能已被废弃，</span><br><span class="line">或者只能在其他发布源中找到</span><br><span class="line">可是下列软件包取代了它：</span><br><span class="line">  lib32z1 lib32ncurses5 lib32bz2-<span class="number">1.0</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>接着就按照提示安装上述三个包即可<br><code>sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0</code><br>如果安装不成功，提示依赖问题，那么就在设置里面的软件更新里面更换软件源，然后按照提示进行下载列表，再重启终端，重新安装上述三个包。<br>有时候，个别的32位程序仍然打不开，这时在命令行运行该程序，就会提示缺少浪什么包，按照提示再安装缺少的包即可。</p>
+<ol>
+<li>Android Studio无法打开sdk manager<br>sdk manager是32位程序，如果32位运行库没有安装好，那么就会导致无法打开，解决办法是安装好32位运行库，并且进入sdk下的tools目录:<br><code>sudo chmod +x android</code><br><code>./android</code>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016-01/10-cirhkjp940007asr2wz3gvp12/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-算法、技术及其它" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016-01/02-cirf3aund000azkr25gdk1lel/" class="article-date">
+      <a href="/2016-01/02-cirhkjp94000aasr2j13wc6f1/" class="article-date">
   	<time datetime="2016-01-02T13:15:38.000Z" itemprop="datePublished">2016-01-02</time>
 </a>
     </div>
@@ -228,7 +292,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016-01/02-cirf3aund000azkr25gdk1lel/">算法、技术及其它【转】</a>
+      <a class="article-title" href="/2016-01/02-cirhkjp94000aasr2j13wc6f1/">算法、技术及其它【转】</a>
     </h1>
   
 
@@ -254,7 +318,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2016-01/02-cirf3aund000azkr25gdk1lel/#more">阅读全文 >></a>
+          <a  href="/2016-01/02-cirhkjp94000aasr2j13wc6f1/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -274,7 +338,7 @@
     <article id="post-windows和Linux双系统时间不准解决方法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015-12/20-cirf3auod000vzkr25q1gky4y/" class="article-date">
+      <a href="/2015-12/20-cirhkjpa0000vasr2h6j52pkw/" class="article-date">
   	<time datetime="2015-12-20T10:26:22.000Z" itemprop="datePublished">2015-12-20</time>
 </a>
     </div>
@@ -288,7 +352,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015-12/20-cirf3auod000vzkr25q1gky4y/">windows和Linux双系统时间不准解决方法</a>
+      <a class="article-title" href="/2015-12/20-cirhkjpa0000vasr2h6j52pkw/">windows和Linux双系统时间不准解决方法</a>
     </h1>
   
 
@@ -314,7 +378,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015-12/20-cirf3auod000vzkr25q1gky4y/#more">阅读全文 >></a>
+          <a  href="/2015-12/20-cirhkjpa0000vasr2h6j52pkw/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -334,7 +398,7 @@
     <article id="post-ubuntu创建开机自启动脚本" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015-12/20-cirf3auol000zzkr29gpfpw95/" class="article-date">
+      <a href="/2015-12/20-cirhkjpa0000zasr22g1twatz/" class="article-date">
   	<time datetime="2015-12-20T08:06:20.000Z" itemprop="datePublished">2015-12-20</time>
 </a>
     </div>
@@ -348,7 +412,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015-12/20-cirf3auol000zzkr29gpfpw95/">ubuntu创建自启动脚本</a>
+      <a class="article-title" href="/2015-12/20-cirhkjpa0000zasr22g1twatz/">ubuntu创建自启动脚本</a>
     </h1>
   
 
@@ -373,7 +437,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015-12/20-cirf3auol000zzkr29gpfpw95/#more">阅读全文 >></a>
+          <a  href="/2015-12/20-cirhkjpa0000zasr22g1twatz/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -393,7 +457,7 @@
     <article id="post-ubuntu配置环境变量" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015-12/20-cirf3auoh000xzkr25bcr2b2m/" class="article-date">
+      <a href="/2015-12/20-cirhkjpa0000xasr29ut2xsk3/" class="article-date">
   	<time datetime="2015-12-20T06:42:32.000Z" itemprop="datePublished">2015-12-20</time>
 </a>
     </div>
@@ -407,7 +471,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015-12/20-cirf3auoh000xzkr25bcr2b2m/">ubuntu配置环境变量详解</a>
+      <a class="article-title" href="/2015-12/20-cirhkjpa0000xasr29ut2xsk3/">ubuntu配置环境变量详解</a>
     </h1>
   
 
@@ -433,68 +497,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015-12/20-cirf3auoh000xzkr25bcr2b2m/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Android编程规范不完全指南【转】" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015-12/15-cirf3auqd001szkr27hdgczk7/" class="article-date">
-  	<time datetime="2015-12-15T00:43:43.000Z" itemprop="datePublished">2015-12-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015-12/15-cirf3auqd001szkr27hdgczk7/">Android编程规范不完全指南【转】</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-__u547D_u540D_u89C4_u5219"><a href="#1-__u547D_u540D_u89C4_u5219" class="headerlink" title="1. 命名规则"></a>1. 命名规则</h1><h2 id="1-1__u7C7B_u540D_uFF0C_u63A5_u53E3_u540D_uFF1A"><a href="#1-1__u7C7B_u540D_uFF0C_u63A5_u53E3_u540D_uFF1A" class="headerlink" title="1.1 类名，接口名："></a>1.1 类名，接口名：</h2><p>以大写开头，如果一个类的类名由多个单词组成，所有单词的首字母必须大写，单词尽量写全称，不要简写，除非约定俗成的名字，例如：<code>URL</code>，<code>RTMP</code>，<code>RTSP</code>这些广泛使用的专有名词，可以全部大写，也可以首字母大写。</p>
-<p>例如：<code>HttpRequest</code>，<code>CourseActivity</code></p>
-<h2 id="1-2__u5C40_u90E8_u53D8_u91CF_uFF0C_u7C7B_u7684_u6210_u5458_u53D8_u91CF_uFF0C_u7C7B_u7684_u6210_u5458_u51FD_u6570_uFF0C_u51FD_u6570_u53C2_u6570_uFF1A"><a href="#1-2__u5C40_u90E8_u53D8_u91CF_uFF0C_u7C7B_u7684_u6210_u5458_u53D8_u91CF_uFF0C_u7C7B_u7684_u6210_u5458_u51FD_u6570_uFF0C_u51FD_u6570_u53C2_u6570_uFF1A" class="headerlink" title="1.2 局部变量，类的成员变量，类的成员函数，函数参数："></a>1.2 局部变量，类的成员变量，类的成员函数，函数参数：</h2><p>以小写字母开头其他的单词首字母大写，变量名不建议使用下划线分隔单词，建议使用驼峰命名法，Android 的系统类都采用此方法。</p>
-<p>例如：<code>toString()</code>，<code>onCreateView(Bundle saveInstanceState)</code><br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015-12/15-cirf3auqd001szkr27hdgczk7/#more">阅读全文 >></a>
+          <a  href="/2015-12/20-cirhkjpa0000xasr29ut2xsk3/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
