@@ -131,7 +131,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DreamFactory/" style="font-size: 13.33px;">DreamFactory</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Linux-DreamFacotory/" style="font-size: 10px;">Linux,DreamFacotory</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DreamFactory/" style="font-size: 13.33px;">DreamFactory</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Linux-DreamFacotory/" style="font-size: 10px;">Linux,DreamFacotory</a> <a href="/tags/edx/" style="font-size: 10px;">edx</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -211,10 +211,72 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-java关键字static使用总结【转】" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015-07/26-cirp65isw0012ekr2563rvl4s/" class="article-date">
+  	<time datetime="2015-07-26T07:05:43.000Z" itemprop="datePublished">2015-07-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015-07/26-cirp65isw0012ekr2563rvl4s/">java关键字static使用总结【转】</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://lavasoft.blog.51cto.com/62575/18771/">原文</a></p>
+<p>   static表示“全局”或者“静态”的意思，用来修饰成员变量和成员方法，也可以形成静态static代码块，但是Java语言中没有全局变量的概念。</p>
+<p>   被static修饰的成员变量和成员方法独立于该类的任何对象。也就是说，它不依赖类特定的实例，被类的所有实例共享。只要这个类被加载，Java虚拟机就能根据类名在运行时数据区的方法区内定找到他们。因此，static对象可以在它的任何对象创建之前访问，无需引用任何对象。</p>
+<p>   用public修饰的static成员变量和成员方法本质是全局变量和全局方法，当声明它类的对象市，不生成static变量的副本，而是类的所有实例共享同一个static变量。</p>
+<p>   static变量前可以有private修饰，表示这个变量可以在类的静态代码块中，或者类的其他静态成员方法中使用（当然也可以在非静态成员方法中使用–废话），但是不能在其他类中通过类名来直接引用，这一点很重要。实际上你需要搞明白，private是访问权限限定，static表示不要实例化就可以使用，这样就容易理解多了。static前面加上其它访问权限关键字的效果也以此类推。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015-07/26-cirp65isw0012ekr2563rvl4s/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-Java继承中子类与父类的执行顺序" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015-07/26-cirhkjpaf001gasr25bcn7ocv/" class="article-date">
+      <a href="/2015-07/26-cirp65itk001fekr2x40uhz3y/" class="article-date">
   	<time datetime="2015-07-26T07:02:05.000Z" itemprop="datePublished">2015-07-26</time>
 </a>
     </div>
@@ -228,7 +290,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015-07/26-cirhkjpaf001gasr25bcn7ocv/">Java继承中子类与父类的执行顺序</a>
+      <a class="article-title" href="/2015-07/26-cirp65itk001fekr2x40uhz3y/">Java继承中子类与父类的执行顺序</a>
     </h1>
   
 
@@ -253,7 +315,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015-07/26-cirhkjpaf001gasr25bcn7ocv/#more">阅读全文 >></a>
+          <a  href="/2015-07/26-cirp65itk001fekr2x40uhz3y/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -273,7 +335,7 @@
     <article id="post-java关键字final使用总结【转】" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015-07/26-cirhkjpa00015asr2x294ybhu/" class="article-date">
+      <a href="/2015-07/26-cirp65it00014ekr2srs2wwvx/" class="article-date">
   	<time datetime="2015-07-26T06:38:25.000Z" itemprop="datePublished">2015-07-26</time>
 </a>
     </div>
@@ -287,7 +349,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015-07/26-cirhkjpa00015asr2x294ybhu/">java关键字final使用总结【转】</a>
+      <a class="article-title" href="/2015-07/26-cirp65it00014ekr2srs2wwvx/">java关键字final使用总结【转】</a>
     </h1>
   
 
@@ -313,7 +375,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015-07/26-cirhkjpa00015asr2x294ybhu/#more">阅读全文 >></a>
+          <a  href="/2015-07/26-cirp65it00014ekr2srs2wwvx/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
