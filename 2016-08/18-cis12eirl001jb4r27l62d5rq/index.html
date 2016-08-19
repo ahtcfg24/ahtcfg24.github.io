@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="360-site-verification" content="75ba9f01bc7007c114960763194ea594" />
+  <meta name="shenma-site-verification" content="af7a569cbd897189a1d354f5a546e9cf_1448262814"/>
+  <meta name="sogou_site_verification" content="5w3a9otWtO"/>
+  <meta name="baidu-site-verification" content="Cgw2xbM7Ic" />
+  <meta name="baidu_union_verify" content="f55e2001837ebf7201cf0e0127fdf65e">
+  <meta name="msvalidate.01" content="BFA6D650605B5004050507525BDDAEF8" />
+  <meta charset="utf-8">
+  
+  <title>DreamFactory教程之User和Email | 绝世盗草人的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言  DreamFactory自带用户管理系统，支持用户注册、登录、权限管理、密码重置、邮箱验证等功能。默认情况下用户不可注册，需要在service中配置User Service开启。
+开放注册
+创建一个Role作为新用户注册时的默认角色">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DreamFactory教程之User和Email">
+<meta property="og:url" content="http://www.iamding.cn/2016-08/18-cis12eirl001jb4r27l62d5rq/index.html">
+<meta property="og:site_name" content="绝世盗草人的博客">
+<meta property="og:description" content="前言  DreamFactory自带用户管理系统，支持用户注册、登录、权限管理、密码重置、邮箱验证等功能。默认情况下用户不可注册，需要在service中配置User Service开启。
+开放注册
+创建一个Role作为新用户注册时的默认角色">
+<meta property="og:image" content="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/register_roles.jpg">
+<meta property="og:image" content="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/access_roles.jpg">
+<meta property="og:image" content="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/services_user.jpg">
+<meta property="og:image" content="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/allow_registration.png">
+<meta property="og:image" content="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/email_templates.png">
+<meta property="og:image" content="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/create_email_service.png">
+<meta property="og:image" content="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/create_163email.png">
+<meta property="og:image" content="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/services_user.jpg">
+<meta property="og:image" content="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/config_user_email.png">
+<meta property="og:updated_time" content="2016-08-19T01:11:50.853Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DreamFactory教程之User和Email">
+<meta name="twitter:description" content="前言  DreamFactory自带用户管理系统，支持用户注册、登录、权限管理、密码重置、邮箱验证等功能。默认情况下用户不可注册，需要在service中配置User Service开启。
+开放注册
+创建一个Role作为新用户注册时的默认角色">
+  
+    <link rel="alternative" href="/atom.xml" title="绝世盗草人的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b8e8ee87e4708173f00d9048c309301";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/cat.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">绝世盗草人</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">未看此花时，花与汝同寂，待看此花时，此花犹艳丽。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+				    
+						</ul>
+						
+							
+						
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/ahtcfg24" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/3180900562" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DreamFactory/" style="font-size: 13.33px;">DreamFactory</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Linux-DreamFacotory/" style="font-size: 10px;">Linux,DreamFacotory</a> <a href="/tags/edx/" style="font-size: 10px;">edx</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://ahtcfg24.github.io/Web/BayMax/index.html/">大白传奇</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://ahtcfg24.github.io/Web/Cloud/index.html/">云端传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.51plusplus.com/">呆海的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zhrmoe.com/">然妞的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.yifans.org/blog/">凡爷的精神病院</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://iming.org/blog/">铭的笔记本</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">吾名徐鼎，丙子年夏至诞，天资愚笨，所幸笨鸟先飞，于娘胎中修炼数月，换得一口先天真气，持久不散，遂有今朝。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">绝世盗草人</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/cat.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">绝世盗草人</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">未看此花时，花与汝同寂，待看此花时，此花犹艳丽。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ahtcfg24" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/3180900562" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-DreamFactory教程之User" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016-08/18-cis12eirl001jb4r27l62d5rq/" class="article-date">
+  	<time datetime="2016-08-18T09:52:17.000Z" itemprop="datePublished">2016-08-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DreamFactory教程之User和Email
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DreamFactory/">DreamFactory</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h2><p>  DreamFactory自带用户管理系统，支持用户注册、登录、权限管理、密码重置、邮箱验证等功能。默认情况下用户不可注册，需要在service中配置User Service开启。</p>
+<h2 id="u5F00_u653E_u6CE8_u518C"><a href="#u5F00_u653E_u6CE8_u518C" class="headerlink" title="开放注册"></a>开放注册</h2><ul>
+<li>创建一个Role作为新用户注册时的默认角色<br><img src="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/register_roles.jpg" alt=""><a id="more"></a></li>
+<li>配置Role权限（此处设置为最高权限，如果你希望该角色只能访问某个数据库，或者某张表，也可以点击+按钮添加）<br><img src="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/access_roles.jpg" alt=""></li>
+<li>进入Service标签下，点击User Service<br><img src="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/services_user.jpg" alt=""></li>
+<li>进入后点击Config，将勾选Allow Open Registration选项，并将Open Reg Role设为刚刚创建的Role<br><img src="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/allow_registration.png" alt=""></li>
+<li>到这里就可以进行注册了，添加API_key参数后就可以访问注册接口了，注册接口详见<a href="http://wiki.dreamfactory.com/DreamFactory/Tutorials/Open_Registration">官方文档</a>，或者在控制台的api_docs标签中自行调试</li>
+</ul>
+<h2 id="u914D_u7F6E_u90AE_u7BB1"><a href="#u914D_u7F6E_u90AE_u7BB1" class="headerlink" title="配置邮箱"></a>配置邮箱</h2><p>  DreamFactory默认使用邮箱进行用户验证，包括通过邮箱进行邀请注册、发送密码重置邮件、发送用户注册成功邮件</p>
+<ul>
+<li>点击Config标签，选择Email Template配置邮件模板<br><img src="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/email_templates.png" alt=""><br>在这里可以配置以上三种类型邮件的模板。默认提供的三种模板是可以直接使用的，当然也可以自定义修改。</li>
+<li>进入Service标签下，创建一个Email Service,DreamFactory提供了多种邮箱服务，这里以smtp为例<br><img src="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/create_email_service.png" alt=""></li>
+<li>进入后点击Config，这里以163邮箱的smtp配置为例，用户名和密码换成你自己的163邮箱密码，保存即可<br><img src="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/create_163email.png" alt=""></li>
+<li>进入Service标签下，点击User Service<br><img src="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/services_user.jpg" alt=""></li>
+<li>进入后点击Config，选择三种类型邮件的模板和所使用的邮箱服务器（由于我不使用邮箱进行注册验证，所以将Open Reg Email Service留空）<br><img src="http://7xp4hv.com1.z0.glb.clouddn.com/image/DreamFactory/config_user_email.png" alt=""></li>
+<li>这样就完成了邮箱的配置，你可以在api_docs中进行邮箱相关接口的调试，详见<a href="http://wiki.dreamfactory.com/DreamFactory/Tutorials/Sending_Email">官方文档</a>，也可以尝试请求重置密码邮件接口。</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016-08/11-cis12eism001xb4r2y5occen5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android版open edx安装教程</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="DreamFactory教程之User" data-title="DreamFactory教程之User和Email" data-url="http://www.iamding.cn/2016-08/18-cis12eirl001jb4r27l62d5rq/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_uv">
+  您是第<span id="busuanzi_value_site_uv"></span>次访问本站的人哦~~~
+</span>
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 绝世盗草人
+      <a href="http://www.miitbeian.gov.cn" target="_blank">京ICP备15064145号</a>
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  
+      Theme 
+      <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> 
+      by Litten and Modified by 绝世盗草人
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

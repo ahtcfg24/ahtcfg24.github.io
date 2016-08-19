@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="360-site-verification" content="75ba9f01bc7007c114960763194ea594" />
+  <meta name="shenma-site-verification" content="af7a569cbd897189a1d354f5a546e9cf_1448262814"/>
+  <meta name="sogou_site_verification" content="5w3a9otWtO"/>
+  <meta name="baidu-site-verification" content="Cgw2xbM7Ic" />
+  <meta name="baidu_union_verify" content="f55e2001837ebf7201cf0e0127fdf65e">
+  <meta name="msvalidate.01" content="BFA6D650605B5004050507525BDDAEF8" />
+  <meta charset="utf-8">
+  
+  <title>利用git服务器在Linux服务器上部署hexo | 绝世盗草人的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言:hexo是我目前见过的最漂亮的博客，相比较wrodpress而言，它轻便，时尚，定制自由度极高，而且完全开源免费，支持各种开源主题、插件。很多极客都采用hexo作为自己的博客，我也不例外（虽然我还算不上一名极客），本博客就是用hexo搭建的，是不是很意外？这么漂亮、完美、功能众多的博客居然是静态的？然而确实是这样，这就是hexo的魅力所在。至于怎么安装配置hexo，hexo的官方博客讲的特别">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用git服务器在Linux服务器上部署hexo">
+<meta property="og:url" content="http://www.iamding.cn/2015-11/19-cis12eiqo000sb4r2hxwkwb87/index.html">
+<meta property="og:site_name" content="绝世盗草人的博客">
+<meta property="og:description" content="前言:hexo是我目前见过的最漂亮的博客，相比较wrodpress而言，它轻便，时尚，定制自由度极高，而且完全开源免费，支持各种开源主题、插件。很多极客都采用hexo作为自己的博客，我也不例外（虽然我还算不上一名极客），本博客就是用hexo搭建的，是不是很意外？这么漂亮、完美、功能众多的博客居然是静态的？然而确实是这样，这就是hexo的魅力所在。至于怎么安装配置hexo，hexo的官方博客讲的特别">
+<meta property="og:updated_time" content="2016-01-10T10:03:16.572Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用git服务器在Linux服务器上部署hexo">
+<meta name="twitter:description" content="前言:hexo是我目前见过的最漂亮的博客，相比较wrodpress而言，它轻便，时尚，定制自由度极高，而且完全开源免费，支持各种开源主题、插件。很多极客都采用hexo作为自己的博客，我也不例外（虽然我还算不上一名极客），本博客就是用hexo搭建的，是不是很意外？这么漂亮、完美、功能众多的博客居然是静态的？然而确实是这样，这就是hexo的魅力所在。至于怎么安装配置hexo，hexo的官方博客讲的特别">
+  
+    <link rel="alternative" href="/atom.xml" title="绝世盗草人的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b8e8ee87e4708173f00d9048c309301";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/cat.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">绝世盗草人</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">未看此花时，花与汝同寂，待看此花时，此花犹艳丽。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+				    
+						</ul>
+						
+							
+						
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/ahtcfg24" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/3180900562" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/DreamFactory/" style="font-size: 13.33px;">DreamFactory</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Linux-DreamFacotory/" style="font-size: 10px;">Linux,DreamFacotory</a> <a href="/tags/edx/" style="font-size: 10px;">edx</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://ahtcfg24.github.io/Web/BayMax/index.html/">大白传奇</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://ahtcfg24.github.io/Web/Cloud/index.html/">云端传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.51plusplus.com/">呆海的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zhrmoe.com/">然妞的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.yifans.org/blog/">凡爷的精神病院</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://iming.org/blog/">铭的笔记本</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">吾名徐鼎，丙子年夏至诞，天资愚笨，所幸笨鸟先飞，于娘胎中修炼数月，换得一口先天真气，持久不散，遂有今朝。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">绝世盗草人</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/cat.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">绝世盗草人</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">未看此花时，花与汝同寂，待看此花时，此花犹艳丽。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ahtcfg24" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/3180900562" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-利用git服务器在Linux服务器上搭建hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015-11/19-cis12eiqo000sb4r2hxwkwb87/" class="article-date">
+  	<time datetime="2015-11-19T12:47:22.000Z" itemprop="datePublished">2015-11-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      利用git服务器在Linux服务器上部署hexo
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="u524D_u8A00_3A"><a href="#u524D_u8A00_3A" class="headerlink" title="前言:"></a>前言:</h2><p>hexo是我目前见过的最漂亮的博客，相比较wrodpress而言，它轻便，时尚，定制自由度极高，而且完全开源免费，支持各种开源主题、插件。很多极客都采用hexo作为自己的博客，我也不例外（虽然我还算不上一名极客），本博客就是用hexo搭建的，是不是很意外？这么漂亮、完美、功能众多的博客居然是静态的？然而确实是这样，这就是hexo的魅力所在。<br>至于怎么安装配置hexo，hexo的<a href="https://hexo.io">官方博客</a>讲的特别清楚，作者是台湾人，支持中文简体、中文繁体、英文浏览该网站。另外网上也有不少关于在github提供的github pages上部署hexo的教程,比如<a href="http://ibruce.info/2013/11/22/hexo-your-blog/">这篇博客</a>讲的非常全面,我就不在此赘述了。<br>可是github pages因为某道万恶的墙的原因，国内访问速度比较慢，而且更新博客后要等个几分钟才能看到网页效果，因此我们自然想到将其部署在国内的服务器主机上。<br>写作本文之前，我只在百度找到了两篇关于在自己的服务器主机而不是github pages上搭建hexo的教程，这两篇文章写的也不错，但是我在实际操作过程中还是遇到了不少坑，于是决定再写一篇博文记录我遇到的坑。由于我的服务器是Linux的 系统。因此本文将结合前人的经验讲述如何在自己的Linux服务器上搭建hexo教程。另外如果你已经在github pages部署成功，你也可以看本教程，本教程也可以帮助你在服务器主机部署好hexo后还能不影响github pages上hexo的更新。<br><a id="more"></a></p>
+<h2 id="u6B63_u6587_uFF1A"><a href="#u6B63_u6587_uFF1A" class="headerlink" title="正文："></a>正文：</h2><p>阅读本博客准备工作：按照<a href="https://hexo.io">官方博客</a>或者<a href="http://ibruce.info/2013/11/22/hexo-your-blog/">这篇博文</a>在本地安装好hexo和git(<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137396287703354d8c6c01c904c7d9ff056ae23da865a000">git教程请看这</a>)只差部署（deploy）配置没有完成或者已经在github pages部署好了。<br>本教程使用的服务器：腾讯云租的云服务器。<br>服务器操作系统：ubuntu server 14.04 32位。<br>服务器Web环境：Nginx(关于如何在Linux服务器搭建Nginx请参考我另一篇博文<a href="http://www.iamding.cn/2015/11/%E5%9C%A8linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AENginx/">在linux服务器安装配置Nginx</a>),别的环境也行，只要能确保静态网页能被浏览器访问到即可。</p>
+<h2 id="u539F_u7406_uFF1A"><a href="#u539F_u7406_uFF1A" class="headerlink" title="原理："></a>原理：</h2><p>hexo支持使用git部署，网上许多部署到github pages的教程本质也是使用git部署，只不过<code>hexo g</code>生成的public文件夹里的代码是被推送到远程仓库github托管，而不是被推送到我们自己的远程git服务器仓库托管罢了。只要我们在自己的服务器主机上搭建好一个git服务器仓库，然后把pubiic文件夹代码托管到这个远程git服务器仓库里，然后在服务器主机上取出git服务器仓库里的代码，复制到网站的根目录下，那么我们就把hexo博客网站部署到了这个服务器主机上。</p>
+<h2 id="u6B65_u9AA4_uFF1A"><a href="#u6B65_u9AA4_uFF1A" class="headerlink" title="步骤："></a>步骤：</h2><ol>
+<li>首先，为了能让本地hexo连上服务器主机上的git服务器仓库，我们需要通过ssh协议来连接本地和服务器端。<br>在本地用户的.ssh文件夹里(windows是<code>C:\Users\ahtcfg24\.ssh</code>其中的ahtcfg24是我的windows用户名，你需要改成你自己的)创建一对密钥:<br>进入.ssh文件夹,右键空白处打开git bash here，输入<code>ssh-keygen -t rsa -C &quot;这里填写一些说明文字，随便你写&quot;</code>,然后一路回车，你就会得到两个密钥文件，id_rsa.pub和id_rsa，pub结尾的是公钥，另一个是私钥，关于ssh的公钥和私钥，本文不再阐述，详情请自行学习ssh，这里我们把这个pub文件上传到服务器主机的一个别的用户有权完全控制的目录里，比如/tmp。（如果你曾经使用过ssh生成了一对这样的文件，你也可以上传你以前生成的pub文件）</li>
+<li><p>然后在服务器端创建一个操作系统用户git,并为其建立一个 .ssh 目录。然后在.ssh中创建一个authorized_keys文件。要注意权限给的一定要对。</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser git</span><br><span class="line"><span class="variable">$ </span>su git</span><br><span class="line"><span class="variable">$ </span>cd</span><br><span class="line"><span class="variable">$ </span>mkdir .ssh &amp;&amp; chmod <span class="number">700</span> .ssh</span><br><span class="line"><span class="variable">$ </span>touch .ssh/authorized_keys &amp;&amp; chmod <span class="number">600</span> .ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>接着，我们需要为系统用户git的authorized_keys文件添加我们本地机器的公钥：<br>注意此时一直都是git用户操作<br><code>cat /tmp/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</code><br>这样我们就完成了本地和服务器主机的连接认证机制,你可以在本地的git bash中输入<code>ssh git@xxx.xxx.xxx.xxx</code>来测试是否可以连接到服务器主机,其中的xxx.xxx.xxx.xxx可以是服务器主机的公网ip,也可以是服务器主机的域名。如果连接不成功，请检查你的公钥是不是在/home/git/.ssh/authorized_keys里面，以及这些文件和文件夹的权限是不是正确的，或者可以尝试把这些文件夹和文件的权限改到777。</p>
+</li>
+<li><p>然后我们要在服务器上安装git<br><code>sudo apt-get install git</code><br>再在一个git用户有权限读写删除执行的目录下建立一个git服务器仓库(<a href="http://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1%E5%99%A8">参考了官方文档</a>)。<br>假设<code>var/git</code>这个文件夹存在且权限为777,现在我们来新建一个空仓库。可以借助带<code>--bare</code>选项的<code>git init</code>命令来做到这一点，该命令在初始化仓库时不会创建工作目录：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>cd /var/git</span><br><span class="line"><span class="variable">$ </span>mkdir project.git</span><br><span class="line"><span class="variable">$ </span>cd project.git</span><br><span class="line"><span class="variable">$ </span>git init --bare</span><br><span class="line"><span class="constant">Initialized </span>empty <span class="constant">Git </span>repository <span class="keyword">in</span> /opt/git/project.git/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这样git服务器仓库就搭建好了,我们回到本地，打开hexo的配置文件_config.yml,修改deploy如下配置(其中的xxx.xxx.xxx.xxx可以是服务器主机的公网ip,也可以是服务器主机的域名)：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>: </span><br><span class="line">    <span class="attribute">type</span>: git</span><br><span class="line">    <span class="attribute">repo</span>: git<span class="variable">@xxx</span>.xxx.xxx.<span class="attribute">xxx</span>:/var/git/project.git</span><br><span class="line">    <span class="attribute">message</span>: update blog</span><br><span class="line">    <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
+<p> 如果你本来已经在github pages上部署好了，那么你的配置就这样写：</p>
+ <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>: </span><br><span class="line">  - <span class="attribute">type</span>: git</span><br><span class="line">    <span class="attribute">repo</span>: git<span class="variable">@xxx</span>.xxx.xxx.<span class="attribute">xxx</span>:/var/git/project.git</span><br><span class="line">    <span class="attribute">message</span>: update blog</span><br><span class="line">    <span class="attribute">branch</span>: master</span><br><span class="line">  - <span class="attribute">type</span>: git</span><br><span class="line">    <span class="attribute">repository</span>: 这里换成你自己的githubpage仓库</span><br><span class="line">    <span class="attribute">message</span>: update blog</span><br><span class="line">    <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
+<p> 这个时候，你再去利用<code>hexo g</code>,<code>hexo d</code>就能把public里面的文件代码推送到服务器上的git仓库里了。如果出现<code>appears not to be a git repo</code>的错误，删除hexo目录下的.deploy后再次<code>hexo g</code>, <code>hexo d</code>就可以了。</p>
+</li>
+<li><p>然而还没完,我们只是把public文件夹传到了服务器主机的git仓库里，还没放到网站根目录，接下来，我们可以写个服务器端的脚本，让服务器自动把我们的public文件夹clone出来，然后复制到网站根目录就可以了。于是我们就要用到<a href="http://git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git-%E9%92%A9%E5%AD%90">git hooks</a>了，在每次推送完成后，执行一段脚本，把project.git里的内容clone出来，再复制到网站根目录,假如你的根目录是<code>/var/www/blog</code>。</p>
+ <figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>cd ~<span class="regexp">/blog.git/hooks</span></span><br><span class="line"><span class="variable">$ </span>touch post-receive</span><br><span class="line"><span class="variable">$ </span>vi post-receive</span><br></pre></td></tr></table></figure>
+<p> 按insert键后输入下面的脚本</p>
+ <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash -<span class="keyword">l</span></span><br><span class="line">GIT_REPO=/<span class="keyword">var</span>/git/project.git</span><br><span class="line">TMP_GIT_CLONE=/tmp</span><br><span class="line">PUBLIC_WWW=/<span class="keyword">var</span>/www/blog</span><br><span class="line"><span class="keyword">rm</span> -rf <span class="label">$&#123;TMP_GIT_CLONE&#125;</span></span><br><span class="line">git clone <span class="label">$GIT_REPO</span> <span class="label">$TMP_GIT_CLONE</span></span><br><span class="line"><span class="keyword">rm</span> -rf <span class="label">$&#123;PUBLIC_WWW&#125;</span><span class="comment">/*</span><br><span class="line">cp -rf $&#123;TMP_GIT_CLONE&#125;<span class="comment">/* $&#123;PUBLIC_WWW&#125;</span></span></span><br></pre></td></tr></table></figure>
+<p> 按esc退出，再输入 <code>:wq</code>回车，保存文件<br> 然后要更改脚本权限和<code>/var/www/blog</code>权限:</p>
+ <figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>chmod +x post-receive</span><br><span class="line"><span class="variable">$ </span>sudo chmod <span class="number">777</span> -<span class="constant">R</span> /var/www/blog</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后在本地执行<code>hexo g</code>,<code>hexo d</code>几秒就可以完成博客的更新了。</p>
+</li>
+</ol>
+<h2 id="u81F4_u8C22"><a href="#u81F4_u8C22" class="headerlink" title="致谢"></a>致谢</h2><p>本文重点参考了git的官方文档，和<a href="http://blog.berry10086.com/Tech/deploy-hexo-to-vps/">http://blog.berry10086.com/Tech/deploy-hexo-to-vps/</a>，向伟大的开源社区和互联网精神以及参考文章作者致谢。同时也诚恳地接受各位读者点评和意见，无论是技术错误还是行文错误。也欢迎在留言中与我互动。</p>
+<h2 id="u540E_u8BB0"><a href="#u540E_u8BB0" class="headerlink" title="后记"></a>后记</h2><p>第一次写这么长的博客，接近五千个字，花了三个多小时，很累却很开心。没有哪一门技术是最强最有前途的，按着自己的兴趣走才是最棒的。</p>
+<p>——————————-2015.11.21 2：41 北京 绝世盗草人</p>
+<h1 id="uFF08_u672C_u6587_u7CFB_u4F5C_u8005_u539F_u521B_uFF0C_u8F6C_u8F7D_u8BF7_u6CE8_u660E_u51FA_u5904_uFF09"><a href="#uFF08_u672C_u6587_u7CFB_u4F5C_u8005_u539F_u521B_uFF0C_u8F6C_u8F7D_u8BF7_u6CE8_u660E_u51FA_u5904_uFF09" class="headerlink" title="（本文系作者原创，转载请注明出处）"></a>（本文系作者原创，转载请注明出处）</h1>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015-11/19-cis12eiqm000qb4r2vldvcfx1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          在linux服务器安装配置Nginx
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015-11/18-cis12eiq5000fb4r2qez7vq6d/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">每天学点Linux命令</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="利用git服务器在Linux服务器上搭建hexo" data-title="利用git服务器在Linux服务器上部署hexo" data-url="http://www.iamding.cn/2015-11/19-cis12eiqo000sb4r2hxwkwb87/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_uv">
+  您是第<span id="busuanzi_value_site_uv"></span>次访问本站的人哦~~~
+</span>
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 绝世盗草人
+      <a href="http://www.miitbeian.gov.cn" target="_blank">京ICP备15064145号</a>
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  
+      Theme 
+      <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> 
+      by Litten and Modified by 绝世盗草人
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
