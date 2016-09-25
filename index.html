@@ -211,10 +211,72 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-DreamFactory教程之Http-Service" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016-09/25-citi46em1001iy4r2e6j6ls4t/" class="article-date">
+  	<time datetime="2016-09-25T03:31:42.000Z" itemprop="datePublished">2016-09-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016-09/25-citi46em1001iy4r2e6j6ls4t/">DreamFactory教程之HTTP Service</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h2><p>DF不仅能够将对数据库的增删改查操作以REST API接口的形式开放出来，还能够将第三方已有的API接口集成到DF中，并且支持缓存。</p>
+<h2 id="u7528_u6CD5"><a href="#u7528_u6CD5" class="headerlink" title="用法"></a>用法</h2><p>假如我现在在别的服务器上写了一个API接口：<a href="http://gc.ditu.aliyun.com/geocoding?a=苏州市">http://gc.ditu.aliyun.com/geocoding?a=苏州市</a>，该接口是用于查询苏州市的信息的。现在我要将该接口集成到我的DF服务器中，以使得我访问【<a href="http://xxxxxxx/api/v2/cityinfo?a=苏州市?api_key=xxxxxAPIKEYxxxx&amp;session_token=xxxxxxxSESSIONTOKENxxxxxxxxx】时能够返回同样的结果，其中xxxxxxx代表DF所在服务器的iP，api/v2是目前使用的DF版本默认的接口访问路径，xxxxxAPIKEYxxxx代表DF中使用的apikey，xxxxxxxSESSIONTOKENxxxxxxxxx代表登录后的session_token。">http://xxxxxxx/api/v2/cityinfo?a=苏州市?api_key=xxxxxAPIKEYxxxx&amp;session_token=xxxxxxxSESSIONTOKENxxxxxxxxx】时能够返回同样的结果，其中xxxxxxx代表DF所在服务器的iP，api/v2是目前使用的DF版本默认的接口访问路径，xxxxxAPIKEYxxxx代表DF中使用的apikey，xxxxxxxSESSIONTOKENxxxxxxxxx代表登录后的session_token。</a></p>
+<ol>
+<li>进入Service标签下，点击Create，选择Remote Service 》HTTP Service。<img src="http://oczielsca.bkt.clouddn.com/image/DreamFactory/create_http_service.png" alt=""></li>
+<li>依次填写Info一栏下的name（自定义的将用于请求URL中的Service名称，此时应填cityinfo），label（用于展示在Service标签下，内容不限）、description（用于展示在Service标签下，内容不限），填完后点击Save。</li>
+<li>点击Info右边的Config一栏，填写相关配置，详情见下图<img src="http://oczielsca.bkt.clouddn.com/image/DreamFactory/config_http_service.png" alt="">，完成后记得点击Save。</li>
+<li>然后在浏览器输入【<a href="http://xxxxxxx/api/v2/cityinfo?a=苏州市&amp;api_key=xxxxxxxxxxxxxxxxxxxxx&amp;session_token=xxxxxxxxxxxxxxxx】就可以访问新的接口获取同样的数据了，由于我设置了缓存时间为5分钟，因此在5分钟内访问该接口时返回的都会是同样的数据，这样做大大减轻了源api接口服务器的压力，并能提高接口访问速度。如果你不想使用session_token，那么可以在Roles中给默认Role添加访问该接口的权限。">http://xxxxxxx/api/v2/cityinfo?a=苏州市&amp;api_key=xxxxxxxxxxxxxxxxxxxxx&amp;session_token=xxxxxxxxxxxxxxxx】就可以访问新的接口获取同样的数据了，由于我设置了缓存时间为5分钟，因此在5分钟内访问该接口时返回的都会是同样的数据，这样做大大减轻了源api接口服务器的压力，并能提高接口访问速度。如果你不想使用session_token，那么可以在Roles中给默认Role添加访问该接口的权限。</a></li>
+</ol>
+<h2 id="u53C2_u8003_u5B98_u65B9_u6559_u7A0B"><a href="#u53C2_u8003_u5B98_u65B9_u6559_u7A0B" class="headerlink" title="参考官方教程"></a>参考<a href="http://wiki.dreamfactory.com/DreamFactory/Features/HTTP_Services">官方教程</a></h2><h2 id="uFF08_u672C_u6587_u4E3A_u7EDD_u4E16_u76D7_u8349_u4EBA_u539F_u521B_uFF0C_u8F6C_u8F7D_u8BF7_u58F0_u660E_u51FA_u5904_uFF1Ahttp_3A//iamding-cn_uFF09"><a href="#uFF08_u672C_u6587_u4E3A_u7EDD_u4E16_u76D7_u8349_u4EBA_u539F_u521B_uFF0C_u8F6C_u8F7D_u8BF7_u58F0_u660E_u51FA_u5904_uFF1Ahttp_3A//iamding-cn_uFF09" class="headerlink" title="（本文为绝世盗草人原创，转载请声明出处：http://iamding.cn）"></a>（本文为绝世盗草人原创，转载请声明出处：<a href="http://iamding.cn）">http://iamding.cn）</a></h2>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DreamFactory/">DreamFactory</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-Android-SDK详解" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016-09/04-cisosf2rx0021pgr2ikqobsaq/" class="article-date">
+      <a href="/2016-09/04-citi46emh0023y4r2uzkglt8f/" class="article-date">
   	<time datetime="2016-09-04T14:54:30.000Z" itemprop="datePublished">2016-09-04</time>
 </a>
     </div>
@@ -228,7 +290,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016-09/04-cisosf2rx0021pgr2ikqobsaq/">Android SDK详解</a>
+      <a class="article-title" href="/2016-09/04-citi46emh0023y4r2uzkglt8f/">Android SDK详解</a>
     </h1>
   
 
@@ -260,7 +322,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2016-09/04-cisosf2rx0021pgr2ikqobsaq/#more">阅读全文 >></a>
+          <a  href="/2016-09/04-citi46emh0023y4r2uzkglt8f/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -280,7 +342,7 @@
     <article id="post-DreamFactory教程之User" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016-08/18-cisosf2q7001gpgr2as73j13s/" class="article-date">
+      <a href="/2016-08/18-citi46elm001gy4r25v9mbq4h/" class="article-date">
   	<time datetime="2016-08-18T09:52:17.000Z" itemprop="datePublished">2016-08-18</time>
 </a>
     </div>
@@ -294,7 +356,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016-08/18-cisosf2q7001gpgr2as73j13s/">DreamFactory教程之User和Email</a>
+      <a class="article-title" href="/2016-08/18-citi46elm001gy4r25v9mbq4h/">DreamFactory教程之User和Email</a>
     </h1>
   
 
@@ -320,7 +382,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2016-08/18-cisosf2q7001gpgr2as73j13s/#more">阅读全文 >></a>
+          <a  href="/2016-08/18-citi46elm001gy4r25v9mbq4h/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -340,7 +402,7 @@
     <article id="post-Android版open-edx安装教程" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016-08/11-cisosf2ri001wpgr2y5cv2sr1/" class="article-date">
+      <a href="/2016-08/11-citi46emh001yy4r2gwiwq302/" class="article-date">
   	<time datetime="2016-08-10T17:16:33.000Z" itemprop="datePublished">2016-08-11</time>
 </a>
     </div>
@@ -354,7 +416,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016-08/11-cisosf2ri001wpgr2y5cv2sr1/">Android版open edx安装教程</a>
+      <a class="article-title" href="/2016-08/11-citi46emh001yy4r2gwiwq302/">Android版open edx安装教程</a>
     </h1>
   
 
@@ -379,7 +441,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2016-08/11-cisosf2ri001wpgr2y5cv2sr1/#more">阅读全文 >></a>
+          <a  href="/2016-08/11-citi46emh001yy4r2gwiwq302/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -399,7 +461,7 @@
     <article id="post-DreamFactory使用教程" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016-08/04-cisosf2qm001mpgr23yfxxm1h/" class="article-date">
+      <a href="/2016-08/04-citi46em1001oy4r203akw1nv/" class="article-date">
   	<time datetime="2016-08-04T14:55:43.000Z" itemprop="datePublished">2016-08-04</time>
 </a>
     </div>
@@ -413,7 +475,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016-08/04-cisosf2qm001mpgr23yfxxm1h/">DreamFactory连接MariaDB生成API接口教程</a>
+      <a class="article-title" href="/2016-08/04-citi46em1001oy4r203akw1nv/">DreamFactory连接MariaDB生成API接口教程</a>
     </h1>
   
 
@@ -437,65 +499,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2016-08/04-cisosf2qm001mpgr23yfxxm1h/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-DreamFactory安装教程（Linux Ubuntu14.04 64位）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016-08/03-cisosf2q7001ipgr23efjbddv/" class="article-date">
-  	<time datetime="2016-08-03T08:15:45.000Z" itemprop="datePublished">2016-08-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016-08/03-cisosf2q7001ipgr23efjbddv/">DreamFactory安装教程（Linux Ubuntu14.04 64位）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="u4EC0_u4E48_u662FDreamFactory_uFF08_u4EE5_u4E0B_u7B80_u79F0DF_uFF09"><a href="#u4EC0_u4E48_u662FDreamFactory_uFF08_u4EE5_u4E0B_u7B80_u79F0DF_uFF09" class="headerlink" title="什么是DreamFactory（以下简称DF）"></a>什么是DreamFactory（以下简称DF）</h2><p>DreamFactory是一款杰出的后端云服务平台，属于BaaS（Backend as a Service）平台的一种，类似的比较出名的平台有Parse（已被FaceBook收购），国内比较有名比如Bomb。这些平台的功能都比较齐全，但宗旨都一样，就是提供一套成熟的，安全的，快捷的后端方案，降低开发成本，缩短开发周期。通俗点说，就是提供后端接口而不需要写后端代码。使用这些平台之后，开发者只需要设计好数据库逻辑，就能快速生成API接口，然后调用这些API接口就能安全地对数据库进行增删改查操作，上传下载文件，推送通知等等。从某种意义上讲，的确是直接使得后端开发成本降到0。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DreamFactory/">DreamFactory</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016-08/03-cisosf2q7001ipgr23efjbddv/#more">阅读全文 >></a>
+          <a  href="/2016-08/04-citi46em1001oy4r203akw1nv/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -514,7 +518,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>
